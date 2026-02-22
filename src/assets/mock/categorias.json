@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "Plato Fuerte"
+    },
+    {
+        "id": 2,
+        "nombre": "Sopa"
+    },
+    {
+        "id": 3,
+        "nombre": "Entrada"
+    },
+    {
+        "id": 4,
+        "nombre": "Acompañamiento"
+    },
+    {
+        "id": 5,
+        "nombre": "Postre"
+    },
+    {
+        "id": 6,
+        "nombre": "Bebida"
+    }
+]

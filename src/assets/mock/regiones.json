@@ -1,0 +1,184 @@
+[
+    {
+        "id": 1,
+        "nombre": "Caribe",
+        "descripcion": "Sabores tropicales y pescados frescos",
+        "imagen": "https://images.unsplash.com/photo-1639222188528-3498adec4f40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGJlYWNoJTIwY2FyaWJiZWFuJTIwY29hc3R8ZW58MXx8fHwxNzcxNDcyMzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "color": "from-blue-400/80 to-cyan-600/80",
+        "departamentos": [
+            {
+                "id": 1,
+                "nombre": "Atlántico"
+            },
+            {
+                "id": 2,
+                "nombre": "Bolívar"
+            },
+            {
+                "id": 3,
+                "nombre": "Cesar"
+            },
+            {
+                "id": 4,
+                "nombre": "Córdoba"
+            },
+            {
+                "id": 5,
+                "nombre": "La Guajira"
+            },
+            {
+                "id": 6,
+                "nombre": "Magdalena"
+            },
+            {
+                "id": 7,
+                "nombre": "Sucre"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Andina",
+        "descripcion": "La tradición de las montañas",
+        "imagen": "https://images.unsplash.com/photo-1768168794837-01dbd3708dfa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmRlYW4lMjBtb3VudGFpbnMlMjBjb2xvbWJpYSUyMGxhbmRzY2FwZXxlbnwxfHx8fDE3NzE0NzIzMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "color": "from-green-500/80 to-emerald-700/80",
+        "departamentos": [
+            {
+                "id": 8,
+                "nombre": "Antioquia"
+            },
+            {
+                "id": 9,
+                "nombre": "Boyacá"
+            },
+            {
+                "id": 10,
+                "nombre": "Caldas"
+            },
+            {
+                "id": 11,
+                "nombre": "Cundinamarca"
+            },
+            {
+                "id": 12,
+                "nombre": "Huila"
+            },
+            {
+                "id": 13,
+                "nombre": "Norte de Santander"
+            },
+            {
+                "id": 14,
+                "nombre": "Quindío"
+            },
+            {
+                "id": 15,
+                "nombre": "Risaralda"
+            },
+            {
+                "id": 16,
+                "nombre": "Santander"
+            },
+            {
+                "id": 17,
+                "nombre": "Tolima"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Pacífica",
+        "descripcion": "Riqueza del mar y la selva",
+        "imagen": "https://images.unsplash.com/photo-1550641575-fd3917d20b8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwYWNpZmljJTIwcmFpbmZvcmVzdCUyMGNvYXN0fGVufDF8fHx8MTc3MTQ3MjM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+        "color": "from-teal-500/80 to-blue-700/80",
+        "departamentos": [
+            {
+                "id": 18,
+                "nombre": "Cauca"
+            },
+            {
+                "id": 19,
+                "nombre": "Chocó"
+            },
+            {
+                "id": 20,
+                "nombre": "Nariño"
+            },
+            {
+                "id": 21,
+                "nombre": "Valle del Cauca"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Amazonía",
+        "descripcion": "Exotismo selvático único",
+        "imagen": "https://images.unsplash.com/photo-1704827466385-0dcf2c0b7965?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbWF6b24lMjBqdW5nbGUlMjBjb2xvbWJpYXxlbnwxfHx8fDE3NzE0NzIzNDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "color": "from-lime-500/80 to-green-700/80",
+        "departamentos": [
+            {
+                "id": 26,
+                "nombre": "Amazonas"
+            },
+            {
+                "id": 27,
+                "nombre": "Caquetá"
+            },
+            {
+                "id": 28,
+                "nombre": "Guainía"
+            },
+            {
+                "id": 29,
+                "nombre": "Guaviare"
+            },
+            {
+                "id": 30,
+                "nombre": "Putumayo"
+            },
+            {
+                "id": 31,
+                "nombre": "Vaupés"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Orinoquía",
+        "descripcion": "Sabor de los llanos orientales",
+        "imagen": "https://images.unsplash.com/photo-1543462496-404f9de5dcb8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvbWJpYW4lMjBwbGFpbnMlMjBsYW5kc2NhcGV8ZW58MXx8fHwxNzcxNDcyMzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "color": "from-amber-500/80 to-orange-700/80",
+        "departamentos": [
+            {
+                "id": 22,
+                "nombre": "Arauca"
+            },
+            {
+                "id": 23,
+                "nombre": "Casanare"
+            },
+            {
+                "id": 24,
+                "nombre": "Meta"
+            },
+            {
+                "id": 25,
+                "nombre": "Vichada"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Insular",
+        "descripcion": "Sabor isleño del mar Caribe",
+        "imagen": "https://images.unsplash.com/photo-1723502436286-3cd289e2a148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYW4lMjBhbmRyZXMlMjBpc2xhbmQlMjBjb2xvbWJpYSUyMGJlYWNofGVufDF8fHx8MTc3MTY5ODk4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+        "color": "from-sky-400/80 to-indigo-600/80",
+        "departamentos": [
+            {
+                "id": 32,
+                "nombre": "San Andrés y Providencia"
+            }
+        ]
+    }
+]

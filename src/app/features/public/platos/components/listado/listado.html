@@ -1,0 +1,63 @@
+<section class="py-12 md:py-16 bg-[color:var(--background)]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-8">
+      <p class="text-[color:var(--tierra)]">Mostrando {{ platos()?.length }} platos típicos</p>
+    </div>
+
+    @if (platos()?.length === 0) {
+      <div class="text-center py-16">
+        <p class="text-xl text-[color:var(--tierra)] mb-4">No hay resultados</p>
+        <button
+          class="bg-[color:var(--terracota-dark)] hover:bg-[color:var(--terracota)]"
+          (click)="limpiar.emit()"
+        >
+          Limpiar filtros
+        </button>
+      </div>
+    } @else {
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        @for (plato of platos(); track plato.id) {
+          <a [routerLink]="['/plato-detalle', plato.id]" class="group block">
+            <div
+              class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              <div class="relative h-64 overflow-hidden">
+                <img
+                  [src]="plato.imagen"
+                  [alt]="plato.nombre"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div
+                  class="absolute top-4 right-4 px-3 py-1 bg-[color:var(--amarillo)] text-[color:var(--cafe-oscuro)] rounded-full text-xs shadow-md"
+                >
+                  {{ plato.categoria.nombre }}
+                </div>
+              </div>
+
+              <div class="p-6">
+                <h3 class="text-2xl text-[color:var(--cafe-oscuro)] mb-2">
+                  {{ plato.nombre }}
+                </h3>
+                <div class="flex items-center gap-2 text-sm text-[color:var(--tierra)] mb-4">
+                  <lucide-icon name="map-pin" class="w-4 h-4" />
+                  <span>{{ plato.departamento.nombre }}</span>
+                </div>
+                <button
+                  [routerLink]="['/plato-detalle', plato.id]"
+                  class="px-4 py-2 w-full bg-[color:var(--terracota-dark)] hover:bg-[color:var(--terracota)] text-white rounded-xl"
+                >
+                  Ver detalles
+                </button>
+                <!-- <button
+                  class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl hover:bg-white/20 transition-all border border-white/20"
+                >
+                  Ver plato destacado
+                </button> -->
+              </div>
+            </div>
+          </a>
+        }
+      </div>
+    }
+  </div>
+</section>

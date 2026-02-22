@@ -1,0 +1,55 @@
+<div class="min-h-screen bg-[color:var(--background)]">
+  @if (regionSeleccionadaObj()) {
+    <section class="relative h-[400px] md:h-[500px] overflow-hidden">
+      <img
+        [src]="regionSeleccionadaObj()?.imagen"
+        [alt]="regionSeleccionadaObj()?.nombre"
+        class="w-full h-full object-cover"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-[color:var(--cafe-oscuro)] via-[color:var(--cafe-oscuro)]/60 to-transparent"
+      ></div>
+
+      <div class="absolute inset-0 flex items-end">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-12 md:pb-16">
+          <div class="max-w-3xl">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-4"
+            >
+              <lucide-icon
+                name="map-pin"
+                class="w-4 h-4 text-[color:var(--amarillo)]"
+              ></lucide-icon>
+              <span class="text-sm text-white"
+                >{{ regionSeleccionadaObj()?.departamentos?.length || 0 }} departamentos</span
+              >
+            </div>
+
+            <h1 class="text-4xl md:text-6xl text-white mb-4">
+              {{ regionSeleccionadaObj()?.nombre }}
+            </h1>
+
+            <p class="text-lg md:text-xl text-white/90 leading-relaxed">
+              {{ regionSeleccionadaObj()?.descripcion }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+  <app-filtros
+    [searchTerm]="searchTerm()"
+    [categorias]="categorias()"
+    [departamentos]="departamentos()"
+    [regiones]="regiones()"
+    [regionSeleccionada]="regionSeleccionada()"
+    [departamentoSeleccionado]="departamentoSeleccionado()"
+    [categoriaSeleccionada]="categoriaSeleccionada()"
+    (searchChange)="searchTerm.set($event)"
+    (categoriaChange)="categoriaSeleccionada.set($event)"
+    (departamentoChange)="departamentoSeleccionado.set($event)"
+    (regionChange)="regionSeleccionada.set($event)"
+  ></app-filtros>
+
+  <app-listado [platos]="platosFiltrados()" (limpiar)="limpiarFiltros()"></app-listado>
+</div>

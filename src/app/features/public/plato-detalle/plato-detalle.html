@@ -1,0 +1,183 @@
+@if (plato()) {
+  <div class="min-h-screen bg-[color:var(--background)]">
+    <div class="bg-white border-b border-[color:var(--border)]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <a
+          routerLink="/platos"
+          class="inline-flex items-center gap-2 text-[color:var(--tierra)] hover:text-[color:var(--terracota-dark)] transition-colors"
+        >
+          <lucide-icon name="arrow-left" class="w-4 h-4" />
+          <span>Volver a {{ plato()!.departamento.nombre }}</span>
+        </a>
+      </div>
+    </div>
+
+    <article class="py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="mb-12">
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span
+              class="px-4 py-2 bg-[color:var(--terracota-dark)] text-white rounded-full text-sm"
+            >
+              {{ plato()!.categoria.nombre }}
+            </span>
+            <span
+              class="px-4 py-2 bg-[color:var(--blanco-calido-dark)] text-[color:var(--tierra)] rounded-full text-sm flex items-center gap-2"
+            >
+              <lucide-icon name="map-pin" class="w-4 h-4" />
+              {{ plato()!.departamento.nombre }}
+            </span>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl text-[color:var(--cafe-oscuro)] mb-4">
+            {{ plato()!.nombre }}
+          </h1>
+
+          <div class="flex flex-wrap gap-6 text-[color:var(--tierra)]">
+            <div class="flex items-center gap-2">
+              <lucide-icon name="clock" class="w-5 h-5" />
+              <span>{{ plato()!.tiempoPreparacion }}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <lucide-icon name="users" class="w-5 h-5" />
+              <span>{{ plato()!.porciones }}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <lucide-icon name="chef-hat" class="w-5 h-5" />
+              <span>Nivel: Intermedio</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-16">
+          <div class="space-y-6">
+            <div class="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+              <img [src]="''" [alt]="plato()!.nombre" class="w-full h-full object-cover" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              @for (img of plato()!.galeria; track $index) {
+                <div class="relative h-48 rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    [src]="img.url"
+                    [alt]="plato()!.nombre"
+                    class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <section class="bg-white rounded-2xl p-8 shadow-lg">
+              <h2 class="text-2xl text-[color:var(--cafe-oscuro)] mb-6 flex items-center gap-3">
+                <div
+                  class="w-10 h-10 bg-[color:var(--amarillo)] rounded-lg flex items-center justify-center"
+                >
+                  <lucide-icon name="chef-hat" class="w-6 h-6 text-[color:var(--cafe-oscuro)]" />
+                </div>
+                Ingredientes
+              </h2>
+              <ul class="space-y-3">
+                @for (ingrediente of plato()!.ingredientes; track $index) {
+                  <li class="flex items-start gap-3 text-[color:var(--tierra)]">
+                    <span
+                      class="w-2 h-2 bg-[color:var(--terracota)] rounded-full mt-2 flex-shrink-0"
+                    >
+                    </span>
+                    <span>{{ ingrediente.nombre }}</span>
+                  </li>
+                  ))
+                }
+              </ul>
+            </section>
+
+            <section
+              class="bg-gradient-to-br from-[color:var(--amarillo)]/20 to-[color:var(--terracota)]/20 rounded-2xl p-8 border-2 border-[color:var(--amarillo)]"
+            >
+              <div class="flex items-start gap-3 mb-4">
+                <lucide-icon
+                  name="sparkles"
+                  class="w-6 h-6 text-[color:var(--terracota-dark)] flex-shrink-0 mt-1"
+                />
+                <h3 class="text-xl text-[color:var(--cafe-oscuro)]">Dato Curioso</h3>
+              </div>
+              <p class="text-[color:var(--tierra)] leading-relaxed">
+                {{ plato()!.datoCurioso }}
+              </p>
+            </section>
+          </div>
+        </div>
+
+        <section class="mb-16">
+          <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+            <h2 class="text-3xl md:text-4xl text-[color:var(--cafe-oscuro)] mb-8">
+              Historia y Tradición
+            </h2>
+            <div class="prose prose-lg max-w-none">
+              @for (parrafo of plato()!.historia.split('\n\n'); track $index) {
+                <p class="text-[color:var(--tierra)] leading-relaxed mb-6 text-lg">
+                  {{ parrafo.trim() }}
+                </p>
+              }
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección de Comentarios  -->
+        <section>
+          <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+            <h2 class="text-3xl text-[color:var(--cafe-oscuro)] mb-8">
+              Comentarios y Experiencias
+            </h2>
+            <form class="mb-12 p-6 bg-[color:var(--blanco-calido-dark)] rounded-xl">
+              <h3 class="text-xl text-[color:var(--cafe-oscuro)] mb-4">Comparte tu experiencia</h3>
+              <div class="space-y-4">
+                <input type="text" placeholder="Tu nombre" class="bg-white" />
+                <textarea placeholder="Escribe tu comentario aquí..." rows="4" class="bg-white">
+                </textarea>
+                <button
+                  type="submit"
+                  class="bg-[color:var(--terracota-dark)] hover:bg-[color:var(--terracota)] text-white"
+                >
+                  Publicar comentario
+                </button>
+              </div>
+            </form>
+
+            <!-- Lista de Comentarios -->
+            <div class="space-y-6">
+              @for (comentario of plato()!.comentarios; track $index) {
+                <div class="border-b border-[color:var(--border)] pb-6 last:border-b-0">
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-12 h-12 bg-gradient-to-br from-[color:var(--terracota)] to-[color:var(--amarillo)] rounded-full flex items-center justify-center flex-shrink-0"
+                    >
+                      <span class="text-white text-lg">
+                        {{ comentario.usuario.charAt(0).toUpperCase() }}
+                      </span>
+                    </div>
+                    <div class="flex-1">
+                      <div class="flex items-center gap-3 mb-2">
+                        <h4 class="text-[color:var(--cafe-oscuro)]">{{ comentario.usuario }}</h4>
+                        <span class="text-sm text-[color:var(--tierra)]">{{
+                          comentario.fecha
+                        }}</span>
+                      </div>
+                      <p class="text-[color:var(--tierra)] leading-relaxed">
+                        {{ comentario.comentario }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+} @else {
+  <p>Cargando...</p>
+}

@@ -1,0 +1,100 @@
+@if (!isAdminRoute()) {
+  <footer class="bg-cafe-oscuro text-blanco-calido relative overflow-hidden">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Branding -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div
+              class="w-12 h-12 bg-gradient-to-br from-terracota to-amarillo rounded-xl flex items-center justify-center"
+            >
+              <span class="text-white text-2xl">🍲</span>
+            </div>
+            <div>
+              <h3 class="text-xl">PlatosTípicos</h3>
+              <p class="text-sm text-tierra-light">Sabores de Colombia</p>
+            </div>
+          </div>
+          <p class="text-sm text-[color:var(--tierra-light)] leading-relaxed">
+            Descubre la riqueza gastronómica de Colombia, región por región, plato por plato.
+          </p>
+          <div class="flex gap-3 mt-6">
+            <a
+              href="#"
+              class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-terracota transition-colors"
+            >
+              <lucide-icon name="facebook" class="w-5 h-5"></lucide-icon>
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-terracota transition-colors"
+            >
+              <lucide-icon name="instagram" class="w-5 h-5"></lucide-icon>
+            </a>
+
+            <a
+              href="#"
+              class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-terracota transition-colors"
+            >
+              <lucide-icon name="twitter" class="w-5 h-5"></lucide-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navegación -->
+        <div>
+          <h4 class="text-lg mb-4">Navegación</h4>
+          <ul class="space-y-3 text-sm text-tierra-light">
+            <li>
+              <a
+                routerLink="/"
+                fragment="hero"
+                class="cursor-pointer hover:text-amarillo transition-colors"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                routerLink="/"
+                fragment="regiones"
+                class="cursor-pointer hover:text-amarillo transition-colors"
+                >Regiones</a
+              >
+            </li>
+            <li>
+              <a routerLink="/platos" class="cursor-pointer hover:text-amarillo transition-colors"
+                >Platos</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h4 class="text-lg mb-4">Contacto</h4>
+          <div class="space-y-3 text-sm text-tierra-light">
+            <div class="flex items-start gap-2">
+              <lucide-icon name="map-pin" class="w-5 h-5 mt-0.5"></lucide-icon>
+              <span>Giron Santander, Colombia</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <lucide-icon name="mail" class="w-5 h-5 mt-0.5"></lucide-icon>
+              <span>jmariogonzalez@ucompensar.edu.co</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <lucide-icon name="user" class="w-5 h-5 mt-0.5"></lucide-icon>
+              <span>ESTUDIANTE | VIRTUAL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div
+        class="border-t border-white/10 mt-12 pt-8 text-center text-sm text-[color:var(--tierra-light)]"
+      >
+        <p>© 2026 PlatosTípicos. Proyecto cultural gastronómico de Colombia. Para Ucompensar.</p>
+      </div>
+    </div>
+  </footer>
+}

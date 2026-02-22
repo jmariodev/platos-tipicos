@@ -1,0 +1,185 @@
+<div class="min-h-screen">
+  <!-- HERO -->
+  <section id="hero" class="relative h-[600px] md:h-[700px] overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1702827495434-629df15aa136?auto=format&fit=crop&w=1080&q=80"
+      alt="Comida típica colombiana"
+      class="w-full h-full object-cover"
+    />
+
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-[color:var(--cafe-oscuro)]/80 via-[color:var(--cafe-oscuro)]/50 to-transparent"
+    ></div>
+
+    <div class="absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto px-4 w-full">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-6xl text-white mb-6">
+            Descubre los
+            <span class="text-[color:var(--amarillo)]">sabores</span>
+            de Colombia
+          </h1>
+
+          <p class="text-lg text-white/90 mb-8">
+            Explora la riqueza gastronómica de nuestras regiones.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              [routerLink]="['/region', 'caribe']"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[color:var(--terracota-dark)] text-white rounded-xl hover:bg-[color:var(--terracota)] transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              Explorar regiones
+              <lucide-icon name="arrow-right" class="w-5 h-5"> </lucide-icon>
+            </a>
+
+            <button
+              routerLink="/"
+              fragment="plato-destacado"
+              class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl hover:bg-white/20 transition-all border border-white/20"
+            >
+              Ver plato destacado
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN REGIONES -->
+  <section id="regiones" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- GRID -->
+      <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl text-[color:var(--cafe-oscuro)]">
+              Explora por
+              <span class="text-[color:var(--terracota-dark)]">Región</span>
+            </h2>
+          </div>
+
+          @if (regiones().length > 0) {
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              @for (region of regiones(); track region.id) {
+                <a
+                  [queryParams]="{ regionId: region.id }"
+                  [routerLink]="['/platos']"
+                  class="group block"
+                >
+                  <div
+                    class="relative h-[380px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                  >
+                    <img
+                      [src]="region.imagen"
+                      [alt]="region.nombre"
+                      class="w-full h-full object-cover"
+                    />
+
+                    <div [class]="'absolute inset-0 bg-gradient-to-t ' + region.color"></div>
+
+                    <div class="absolute inset-0 p-6 flex flex-col justify-end">
+                      <h3 class="text-2xl text-white mb-2">
+                        {{ region.nombre }}
+                      </h3>
+
+                      <p class="text-white/90 text-sm mb-4">
+                        {{ region.descripcion }}
+                      </p>
+
+                      <span
+                        [queryParams]="{ regionId: region.id }"
+                        [routerLink]="['/platos']"
+                        class="text-white text-sm"
+                      >
+                        Explorar →
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              }
+            </div>
+          } @else {
+            <div class="text-center py-20 text-gray-500">Cargando regiones...</div>
+          }
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- Plato Destacado - Diseño Editorial, Para futura implementacion de plato destacado dinamica -->
+  <section id="plato-destacado" class="py-16 md:py-24 bg-[color:var(--blanco-calido-dark)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <!-- Imagen -->
+        <div class="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src="https://images.unsplash.com/photo-1573249911185-d1a43e5cf596?auto=format&fit=crop&w=1080&q=80"
+            alt="Bandeja Paisa"
+            class="w-full h-full object-cover"
+          />
+
+          <div
+            class="absolute top-4 right-4 px-4 py-2 bg-[color:var(--amarillo)] text-[color:var(--cafe-oscuro)] rounded-full text-sm shadow-lg"
+          >
+            ⭐ Destacado
+          </div>
+        </div>
+
+        <!-- Contenido -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-6">
+            <span class="text-sm text-[color:var(--tierra)]"> Región Andina • Antioquia </span>
+          </div>
+
+          <h2 class="text-3xl md:text-5xl text-[color:var(--cafe-oscuro)] mb-6">Bandeja Paisa</h2>
+
+          <p class="text-lg text-[color:var(--tierra)] leading-relaxed mb-6">
+            El plato más emblemático de la región andina colombiana. Una explosión de sabores que
+            representa la abundancia y la hospitalidad paisa. Desde las montañas de Antioquia, esta
+            combinación única de frijoles, arroz, carne molida, chicharrón, chorizo, huevo frito,
+            aguacate, arepa y plátano maduro cuenta la historia de generaciones.
+          </p>
+
+          <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+            <h4 class="text-[color:var(--terracota-dark)] mb-3">💡 Dato Curioso</h4>
+            <p class="text-[color:var(--tierra)] text-sm leading-relaxed">
+              La Bandeja Paisa originalmente era el alimento de los arrieros que transportaban café
+              por las montañas. Necesitaban un plato abundante que les diera energía para todo el
+              día.
+            </p>
+          </div>
+
+          <a
+            [routerLink]="['/plato', 'bandeja-paisa']"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-[color:var(--terracota-dark)] text-white rounded-xl hover:bg-[color:var(--terracota)] transition-all shadow-lg hover:shadow-xl"
+          >
+            Ver historia completa →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section
+    class="py-16 md:py-20 bg-gradient-to-br from-[color:var(--terracota-dark)] via-[color:var(--terracota)] to-[color:var(--amarillo-dark)]"
+  >
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl text-white mb-4">¿Tienes un plato típico favorito?</h2>
+
+      <p class="text-lg text-white/90 mb-8">
+        Comparte tus experiencias y descubre nuevos sabores de Colombia
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          [routerLink]="['/platos']"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[color:var(--terracota-dark)] rounded-xl hover:shadow-xl transition-all"
+        >
+          Explorar todos los platos
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

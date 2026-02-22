@@ -1,0 +1,114 @@
+[
+    {
+        "id": "bandeja-paisa",
+        "nombre": "Bandeja Paisa",
+        "departamento": {
+            "id": 8,
+            "nombre": "Antioquia"
+        },
+        "categoria": {
+            "id": 1,
+            "nombre": "Plato Fuerte"
+        },
+        "imagen": "https://images.unsplash.com/photo-1573249911185-d1a43e5cf596?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYW5kZWphJTIwcGFpc2ElMjBjb2xvbWJpYW4lMjBkaXNofGVufDF8fHx8MTc3MTQ3MjMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "alta"
+    },
+    {
+        "id": "ajiaco",
+        "nombre": "Ajiaco",
+        "departamento": {
+            "id": 11,
+            "nombre": "Cundinamarca"
+        },
+        "categoria": {
+            "id": 2,
+            "nombre": "Sopa"
+        },
+        "imagen": "https://images.unsplash.com/photo-1741026079032-7cb660e44bad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYW5jb2NobyUyMGNvbG9tYmlhbiUyMHNvdXB8ZW58MXx8fHwxNzcxNDcyMzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "alta"
+    },
+    {
+        "id": "arepa",
+        "nombre": "Arepa de Huevo",
+        "departamento": {
+            "id": 2,
+            "nombre": "Bolívar"
+        },
+        "categoria": {
+            "id": 1,
+            "nombre": "Plato Fuerte"
+        },
+        "imagen": "https://images.unsplash.com/photo-1702827496422-edff3a844c9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmVwYXMlMjBjb2xvbWJpYW4lMjBjdWlzaW5lfGVufDF8fHx8MTc3MTQ3MjMzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "alta"
+    },
+    {
+        "id": "sancocho",
+        "nombre": "Sancocho Costeño",
+        "departamento": {
+            "id": 1,
+            "nombre": "Atlántico"
+        },
+        "categoria": {
+            "id": 2,
+            "nombre": "Sopa"
+        },
+        "imagen": "https://images.unsplash.com/photo-1741026079032-7cb660e44bad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYW5jb2NobyUyMGNvbG9tYmlhbiUyMHNvdXB8ZW58MXx8fHwxNzcxNDcyMzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "media"
+    },
+    {
+        "id": "empanadas",
+        "nombre": "Empanadas",
+        "departamento": {
+            "id": 16,
+            "nombre": "Santander"
+        },
+        "categoria": {
+            "id": 3,
+            "nombre": "Entrada"
+        },
+        "imagen": "https://images.unsplash.com/photo-1569072412439-e8cd5d6f22df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvbWJpYW4lMjBlbXBhbmFkYXMlMjB0cmFkaXRpb25hbHxlbnwxfHx8fDE3NzE0NzIzNDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "alta"
+    },
+    {
+        "id": "tamales",
+        "nombre": "Tamales",
+        "departamento": {
+            "id": 17,
+            "nombre": "Tolima"
+        },
+        "categoria": {
+            "id": 1,
+            "nombre": "Plato Fuerte"
+        },
+        "imagen": "https://images.unsplash.com/photo-1718395012128-a6d204223093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW1hbGVzJTIwY29sb21iaWFuJTIwdHJhZGl0aW9uYWx8ZW58MXx8fHwxNzcxNDcyMzQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "media"
+    },
+    {
+        "id": "arroz-coco",
+        "nombre": "Arroz con Coco",
+        "departamento": {
+            "id": 2,
+            "nombre": "Bolívar"
+        },
+        "categoria": {
+            "id": 4,
+            "nombre": "Acompañamiento"
+        },
+        "imagen": "https://images.unsplash.com/photo-1505216980056-a7b7b1c6e000?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnJveiUyMGNvbiUyMGNvY28lMjBsYXRpbnxlbnwxfHx8fDE3NzE0NzIzNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "media"
+    },
+    {
+        "id": "bunuelos",
+        "nombre": "Buñuelos",
+        "departamento": {
+            "id": 21,
+            "nombre": "Valle del Cauca"
+        },
+        "categoria": {
+            "id": 5,
+            "nombre": "Postre"
+        },
+        "imagen": "https://images.unsplash.com/photo-1760726361546-dcf52a0bb5da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidSVDMyVCMXVlbG9zJTIwbGF0aW4lMjBhbWVyaWNhbnxlbnwxfHx8fDE3NzE0NzIzNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+        "popularidad": "alta"
+    }
+]

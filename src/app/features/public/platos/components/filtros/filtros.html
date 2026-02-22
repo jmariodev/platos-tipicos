@@ -1,0 +1,108 @@
+<!-- <div class="grid md:grid-cols-4 gap-4">
+  <input
+    type="text"
+    placeholder="Buscar..."
+    [value]="searchTerm"
+    (input)="searchChange.emit($any($event.target).value)"
+  />
+
+  <select [value]="categoria" (change)="categoriaChange.emit($any($event.target).value)">
+    <option value="todas">Todas</option>
+    <option value="Plato Fuerte">Plato Fuerte</option>
+    <option value="Sopa">Sopa</option>
+    <option value="Postre">Postre</option>
+  </select>
+
+  <select [value]="departamento" (change)="departamentoChange.emit($any($event.target).value)">
+    <option value="todos">Todos</option>
+    <option value="Antioquia">Antioquia</option>
+    <option value="Atlántico">Atlántico</option>
+  </select>
+
+  <select [value]="region" (change)="regionChange.emit($any($event.target).value)">
+    <option value="todas">Todas</option>
+    <option value="caribe">Caribe</option>
+    <option value="andina">Andina</option>
+  </select>
+</div> -->
+
+<section
+  class="bg-white border-b border-[color:var(--border)] sticky top-0 md:top-20 z-40 shadow-sm"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <!-- Botón móvil para mostrar filtros -->
+    <button
+      (click)="filtersOpen = !filtersOpen"
+      class="md:hidden flex items-center justify-between w-full px-4 py-3 bg-[color:var(--blanco-calido-dark)] rounded-lg mb-4"
+    >
+      <div class="flex items-center gap-2">
+        <lucide-icon name="filter" class="w-5 h-5 text-[color:var(--terracota-dark)]"></lucide-icon>
+        <span class="text-[color:var(--cafe-oscuro)]">Filtros</span>
+      </div>
+      <lucide-icon
+        name="chevron-down"
+        [ngClass]="{ 'rotate-180': filtersOpen }"
+        class="w-5 h-5 text-[color:var(--cafe-oscuro)] transition-transform"
+      ></lucide-icon>
+    </button>
+
+    <!-- Filtros Desktop y Mobile (colapsables) -->
+    <div
+      [ngClass]="{ 'grid gap-4': filtersOpen, 'hidden md:grid md:grid-cols-4 gap-4': !filtersOpen }"
+    >
+      <!-- Buscador -->
+      <div class="relative">
+        <lucide-icon
+          name="search"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[color:var(--muted-foreground)]"
+        ></lucide-icon>
+        <input
+          type="text"
+          placeholder="Buscar plato..."
+          [value]="searchTerm"
+          (input)="searchChange.emit($any($event.target).value)"
+          class="pl-10 bg-[color:var(--blanco-calido-dark)] border-none w-full rounded-md px-3 py-2"
+        />
+      </div>
+
+      <!-- Region -->
+      <select
+        [value]="regionSeleccionada"
+        (change)="regionChange.emit($any($event.target).value)"
+        placeholder="Región"
+        class="bg-[color:var(--blanco-calido-dark)] border-none w-full rounded-md px-3 py-2"
+      >
+        <option value="0">Todas</option>
+        @for (region of regiones; track region.id) {
+          <option [value]="region.id">{{ region.nombre }}</option>
+        }
+      </select>
+
+      <!-- Departamento -->
+      <select
+        [value]="departamentoSeleccionado"
+        (change)="departamentoChange.emit($any($event.target).value)"
+        placeholder="Departamento"
+        class="bg-[color:var(--blanco-calido-dark)] border-none w-full rounded-md px-3 py-2"
+      >
+        <option value="0">Todos</option>
+        @for (departamento of departamentos; track departamento.id) {
+          <option [value]="departamento.id">{{ departamento.nombre }}</option>
+        }
+      </select>
+
+      <!-- Categoría -->
+      <select
+        [value]="categoriaSeleccionada"
+        (change)="categoriaChange.emit($any($event.target).value)"
+        placeholder="Categoría"
+        class="bg-[color:var(--blanco-calido-dark)] border-none w-full rounded-md px-3 py-2"
+      >
+        <option value="0">Todas</option>
+        @for (categoria of categorias; track categoria.id) {
+          <option [value]="categoria.id">{{ categoria.nombre }}</option>
+        }
+      </select>
+    </div>
+  </div>
+</section>
