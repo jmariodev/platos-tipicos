@@ -8,7 +8,7 @@
       <div class="text-center py-16">
         <p class="text-xl text-[color:var(--tierra)] mb-4">No hay resultados</p>
         <button
-          class="bg-[color:var(--terracota-dark)] hover:bg-[color:var(--terracota)]"
+          class="bg-[color:var(--terracota-dark)] hover:bg-[color:var(--terracota)] px-4 py-2 text-white rounded-xl"
           (click)="limpiar.emit()"
         >
           Limpiar filtros
@@ -23,7 +23,7 @@
             >
               <div class="relative h-64 overflow-hidden">
                 <img
-                  [src]="plato.imagen"
+                  [src]="plato?.galeria[0].url"
                   [alt]="plato.nombre"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />

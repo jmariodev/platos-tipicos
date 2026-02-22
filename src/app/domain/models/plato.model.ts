@@ -5,7 +5,7 @@ import { Galeria } from "./galeria.model";
 import { Ingrediente } from "./ingrediente.model";
 
 export interface Plato {
-    id: string;
+    id: number;
     nombre: string;
     porciones: number;
     esDestacado: boolean;

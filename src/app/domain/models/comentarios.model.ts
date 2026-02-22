@@ -1,5 +1,5 @@
 export interface Comentarios {
-    id: string;
+    id: number;
     usuario: string;
     comentario: string;
     fecha: Date;

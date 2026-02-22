@@ -15,8 +15,8 @@ export class PlatoRepositoryImpl extends PlatoRepository {
         return this.http.get<Plato[]>('assets/mock/platos.json');
     }
 
-    getPlatoById(id: string): Observable<Plato | undefined> {
+    getPlatoById(id: number): Observable<Plato | undefined> {
         return this.http.get<Plato[]>('assets/mock/platos.json')
-            .pipe(map(platos => platos.find(p => p.id === id)!));
+            .pipe(map(platos => platos.find(p => p.id == id)!));
     }
 }

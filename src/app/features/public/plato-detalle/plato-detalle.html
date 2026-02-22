@@ -7,7 +7,7 @@
           class="inline-flex items-center gap-2 text-[color:var(--tierra)] hover:text-[color:var(--terracota-dark)] transition-colors"
         >
           <lucide-icon name="arrow-left" class="w-4 h-4" />
-          <span>Volver a {{ plato()!.departamento.nombre }}</span>
+          <span>Volver</span>
         </a>
       </div>
     </div>
@@ -52,7 +52,11 @@
         <div class="grid lg:grid-cols-2 gap-12 mb-16">
           <div class="space-y-6">
             <div class="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              <img [src]="''" [alt]="plato()!.nombre" class="w-full h-full object-cover" />
+              <img
+                [src]="plato()!.galeria[0].url"
+                [alt]="plato()!.nombre"
+                class="w-full h-full object-cover"
+              />
             </div>
 
             <div class="grid grid-cols-2 gap-4">
@@ -64,7 +68,6 @@
                     class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                ))
               }
             </div>
           </div>
@@ -88,7 +91,6 @@
                     </span>
                     <span>{{ ingrediente.nombre }}</span>
                   </li>
-                  ))
                 }
               </ul>
             </section>
@@ -131,15 +133,31 @@
             <h2 class="text-3xl text-[color:var(--cafe-oscuro)] mb-8">
               Comentarios y Experiencias
             </h2>
-            <form class="mb-12 p-6 bg-[color:var(--blanco-calido-dark)] rounded-xl">
+            <form
+              [formGroup]="comentarioForm"
+              (ngSubmit)="enviarComentario()"
+              class="mb-12 p-6 bg-[color:var(--blanco-calido-dark)] rounded-xl"
+            >
               <h3 class="text-xl text-[color:var(--cafe-oscuro)] mb-4">Comparte tu experiencia</h3>
               <div class="space-y-4">
-                <input type="text" placeholder="Tu nombre" class="bg-white" />
-                <textarea placeholder="Escribe tu comentario aquí..." rows="4" class="bg-white">
-                </textarea>
+                <input
+                  formControlName="usuario"
+                  type="text"
+                  placeholder="Tu nombre"
+                  class="bg-white px-4 py-2 rounded-lg w-full"
+                />
+
+                <textarea
+                  formControlName="texto"
+                  placeholder="Escribe tu comentario aquí..."
+                  rows="4"
+                  class="bg-white px-4 py-2 rounded-lg w-full"
+                ></textarea>
+
                 <button
                   type="submit"
-                  class="bg-[color:var(--terracota-dark)] hover:bg-[color:var(--terracota)] text-white"
+                  [disabled]="comentarioForm.invalid"
+                  class="bg-[color:var(--terracota-dark)] hover:bg-[color:var(--terracota)] text-white px-4 py-2 rounded-lg disabled:opacity-50"
                 >
                   Publicar comentario
                 </button>

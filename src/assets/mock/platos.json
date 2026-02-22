@@ -1,114 +1,996 @@
 [
     {
-        "id": "bandeja-paisa",
+        "id": 1,
         "nombre": "Bandeja Paisa",
+        "porciones": 1,
+        "esDestacado": true,
+        "tiempoPreparacion": 120,
+        "datoCurioso": "La bandeja paisa es tan grande que originalmente se servía en bandejas de madera que usaban los arrieros durante sus largos viajes.",
+        "historia": "Este plato nació en las zonas rurales de Antioquia durante el siglo XIX. Los arrieros, quienes transportaban mercancías a lomo de mula por las montañas, necesitaban comidas contundentes y energéticas que les permitieran soportar largas jornadas de trabajo. Cada ingrediente tenía un propósito: el chicharrón y la carne molida aportaban proteína, los frijoles daban energía duradera, el huevo y el aguacate complementaban nutricionalmente, y el plátano maduro ofrecía un toque dulce. Con el tiempo, este plato se convirtió en el símbolo gastronómico de Antioquia y en uno de los más representativos de Colombia.",
+        "descripcion": "La bandeja paisa es el plato más emblemático de la región antioqueña. Se caracteriza por su abundancia y variedad, combinando frijoles rojos, arroz blanco, carne molida, chicharrón, chorizo, huevo frito, plátano maduro, aguacate y arepa. Es un festín que representa la generosidad y la tradición paisa.",
+        "popularidad": 98,
         "departamento": {
             "id": 8,
-            "nombre": "Antioquia"
+            "nombre": "Antioquia",
+            "region": "Andina"
         },
         "categoria": {
             "id": 1,
             "nombre": "Plato Fuerte"
         },
-        "imagen": "https://images.unsplash.com/photo-1573249911185-d1a43e5cf596?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYW5kZWphJTIwcGFpc2ElMjBjb2xvbWJpYW4lMjBkaXNofGVufDF8fHx8MTc3MTQ3MjMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "alta"
+        "ingredientes": [
+            {
+                "id": 1,
+                "nombre": "Frijoles rojos",
+                "cantidad": "1 taza",
+                "tipo": "principal"
+            },
+            {
+                "id": 2,
+                "nombre": "Carne molida",
+                "cantidad": "150g",
+                "tipo": "principal"
+            },
+            {
+                "id": 3,
+                "nombre": "Chicharrón",
+                "cantidad": "80g",
+                "tipo": "principal"
+            },
+            {
+                "id": 4,
+                "nombre": "Chorizo antioqueño",
+                "cantidad": "1 unidad",
+                "tipo": "principal"
+            },
+            {
+                "id": 5,
+                "nombre": "Huevo",
+                "cantidad": "1 unidad",
+                "tipo": "principal"
+            },
+            {
+                "id": 6,
+                "nombre": "Arroz blanco",
+                "cantidad": "1 taza",
+                "tipo": "base"
+            },
+            {
+                "id": 7,
+                "nombre": "Plátano maduro",
+                "cantidad": "1/2 unidad",
+                "tipo": "acompañamiento"
+            },
+            {
+                "id": 8,
+                "nombre": "Aguacate",
+                "cantidad": "1/4 unidad",
+                "tipo": "acompañamiento"
+            },
+            {
+                "id": 9,
+                "nombre": "Arepa",
+                "cantidad": "1 unidad",
+                "tipo": "acompañamiento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 1,
+                "url": "https://images.unsplash.com/photo-1573249911185-d1a43e5cf596?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYW5kZWphJTIwcGFpc2ElMjBjb2xvbWJpYW4lMjBkaXNofGVufDF8fHx8MTc3MTQ3MjMzOHww&ixlib=rb-4.1.0&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Bandeja Paisa completa"
+            },
+            {
+                "id": 2,
+                "url": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "detalle",
+                "descripcion": "Chicharrón crocante"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 1,
+                "usuario": "Carlos Gómez",
+                "calificacion": 5,
+                "comentario": "¡La mejor bandeja paisa que he probado! Auténtico sabor antioqueño.",
+                "fecha": "2026-02-15"
+            },
+            {
+                "id": 2,
+                "usuario": "María Torres",
+                "calificacion": 5,
+                "comentario": "Contundente y deliciosa. Los frijoles estaban perfectos.",
+                "fecha": "2026-02-10"
+            }
+        ]
     },
     {
-        "id": "ajiaco",
-        "nombre": "Ajiaco",
+        "id": 2,
+        "nombre": "Ajiaco Santafereño",
+        "porciones": 4,
+        "esDestacado": true,
+        "tiempoPreparacion": 90,
+        "datoCurioso": "El ajiaco lleva tres tipos diferentes de papa: criolla, pastusa y sabanera, cada una aporta una textura única a la sopa.",
+        "historia": "El ajiaco es un legado de la tradición culinaria muisca que habitaba el altiplano cundiboyacense. Los indígenas cultivaban diferentes variedades de papa y las combinaban en sopas nutritivas. Con la llegada de los españoles, se incorporaron ingredientes como el pollo y las alcaparras, transformando el plato en lo que conocemos hoy. En Bogotá, el ajiaco se convirtió en el plato dominical por excelencia, especialmente popular en los días fríos de la sabana. Cada familia tiene su propia receta secreta, transmitida de generación en generación.",
+        "descripcion": "Sopa espesa y reconfortante típica de Bogotá, preparada con tres variedades de papa que se deshacen creando una textura cremosa única. Se sirve con pollo deshilachado, mazorca, alcaparras, crema de leche y aguacate. Perfecta para los días fríos de la capital.",
+        "popularidad": 95,
         "departamento": {
             "id": 11,
-            "nombre": "Cundinamarca"
+            "nombre": "Cundinamarca",
+            "region": "Andina"
         },
         "categoria": {
             "id": 2,
             "nombre": "Sopa"
         },
-        "imagen": "https://images.unsplash.com/photo-1741026079032-7cb660e44bad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYW5jb2NobyUyMGNvbG9tYmlhbiUyMHNvdXB8ZW58MXx8fHwxNzcxNDcyMzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "alta"
+        "ingredientes": [
+            {
+                "id": 10,
+                "nombre": "Pechuga de pollo",
+                "cantidad": "500g",
+                "tipo": "principal"
+            },
+            {
+                "id": 11,
+                "nombre": "Papa criolla",
+                "cantidad": "300g",
+                "tipo": "principal"
+            },
+            {
+                "id": 12,
+                "nombre": "Papa pastusa",
+                "cantidad": "400g",
+                "tipo": "principal"
+            },
+            {
+                "id": 13,
+                "nombre": "Papa sabanera",
+                "cantidad": "300g",
+                "tipo": "principal"
+            },
+            {
+                "id": 14,
+                "nombre": "Mazorca",
+                "cantidad": "2 unidades",
+                "tipo": "principal"
+            },
+            {
+                "id": 15,
+                "nombre": "Guascas",
+                "cantidad": "1 atado",
+                "tipo": "condimento"
+            },
+            {
+                "id": 16,
+                "nombre": "Alcaparras",
+                "cantidad": "3 cdas",
+                "tipo": "acompañamiento"
+            },
+            {
+                "id": 17,
+                "nombre": "Crema de leche",
+                "cantidad": "1/2 taza",
+                "tipo": "acompañamiento"
+            },
+            {
+                "id": 18,
+                "nombre": "Aguacate",
+                "cantidad": "1 unidad",
+                "tipo": "acompañamiento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 3,
+                "url": "https://images.unsplash.com/photo-1741026079032-7cb660e44bad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Ajiaco servido en plato de barro"
+            },
+            {
+                "id": 4,
+                "url": "https://images.unsplash.com/photo-1547592166-23ac45744acd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "ingredientes",
+                "descripcion": "Papas y mazorca fresca"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 3,
+                "usuario": "Diana Rodríguez",
+                "calificacion": 5,
+                "comentario": "Perfecta para los días fríos de Bogotá. Me recuerda a la que hacía mi abuela.",
+                "fecha": "2026-02-18"
+            },
+            {
+                "id": 4,
+                "usuario": "Jorge Martínez",
+                "calificacion": 4,
+                "comentario": "Muy bueno, aunque le faltó un poco más de guascas a mi gusto.",
+                "fecha": "2026-02-12"
+            }
+        ]
     },
     {
-        "id": "arepa",
+        "id": 3,
         "nombre": "Arepa de Huevo",
+        "porciones": 1,
+        "esDestacado": false,
+        "tiempoPreparacion": 30,
+        "datoCurioso": "La técnica de meter el huevo dentro de la arepa mientras se fríe es todo un arte que requiere práctica y timing perfecto.",
+        "historia": "Las arepas de huevo son un ícono de la costa Caribe colombiana, especialmente en Cartagena y Barranquilla. Se dice que nacieron de la creatividad de las vendedoras ambulantes que buscaban hacer más sustanciosas las arepas tradicionales. La técnica consiste en abrir la arepa mientras se fríe y agregar un huevo crudo en su interior, creando una combinación perfecta entre lo crujiente del exterior y lo suave del huevo cocido. Hoy en día, son el desayuno o merienda favorita de los costeños y se venden en cada esquina del Caribe colombiano.",
+        "descripcion": "Deliciosa arepa frita de la costa Caribe rellena con huevo. Su exterior es crujiente y dorado, mientras que el interior contiene un huevo perfectamente cocido. Se puede rellenar también con carne molida para hacerla aún más sustanciosa.",
+        "popularidad": 92,
         "departamento": {
             "id": 2,
-            "nombre": "Bolívar"
-        },
-        "categoria": {
-            "id": 1,
-            "nombre": "Plato Fuerte"
-        },
-        "imagen": "https://images.unsplash.com/photo-1702827496422-edff3a844c9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmVwYXMlMjBjb2xvbWJpYW4lMjBjdWlzaW5lfGVufDF8fHx8MTc3MTQ3MjMzOXww&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "alta"
-    },
-    {
-        "id": "sancocho",
-        "nombre": "Sancocho Costeño",
-        "departamento": {
-            "id": 1,
-            "nombre": "Atlántico"
-        },
-        "categoria": {
-            "id": 2,
-            "nombre": "Sopa"
-        },
-        "imagen": "https://images.unsplash.com/photo-1741026079032-7cb660e44bad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYW5jb2NobyUyMGNvbG9tYmlhbiUyMHNvdXB8ZW58MXx8fHwxNzcxNDcyMzQwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "media"
-    },
-    {
-        "id": "empanadas",
-        "nombre": "Empanadas",
-        "departamento": {
-            "id": 16,
-            "nombre": "Santander"
+            "nombre": "Bolívar",
+            "region": "Caribe"
         },
         "categoria": {
             "id": 3,
             "nombre": "Entrada"
         },
-        "imagen": "https://images.unsplash.com/photo-1569072412439-e8cd5d6f22df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvbWJpYW4lMjBlbXBhbmFkYXMlMjB0cmFkaXRpb25hbHxlbnwxfHx8fDE3NzE0NzIzNDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "alta"
+        "ingredientes": [
+            {
+                "id": 19,
+                "nombre": "Harina de maíz",
+                "cantidad": "1 taza",
+                "tipo": "base"
+            },
+            {
+                "id": 20,
+                "nombre": "Huevo",
+                "cantidad": "1 unidad",
+                "tipo": "principal"
+            },
+            {
+                "id": 21,
+                "nombre": "Sal",
+                "cantidad": "1 cdta",
+                "tipo": "condimento"
+            },
+            {
+                "id": 22,
+                "nombre": "Aceite para freír",
+                "cantidad": "500ml",
+                "tipo": "base"
+            },
+            {
+                "id": 23,
+                "nombre": "Carne molida (opcional)",
+                "cantidad": "50g",
+                "tipo": "adicional"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 5,
+                "url": "https://images.unsplash.com/photo-1702827496422-edff3a844c9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Arepa de huevo dorada y crujiente"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 5,
+                "usuario": "Luisa Fernández",
+                "calificacion": 5,
+                "comentario": "¡Auténtico sabor costeño! Crujientes por fuera y suaves por dentro.",
+                "fecha": "2026-02-20"
+            }
+        ]
     },
     {
-        "id": "tamales",
-        "nombre": "Tamales",
+        "id": 4,
+        "nombre": "Sancocho Costeño",
+        "porciones": 6,
+        "esDestacado": false,
+        "tiempoPreparacion": 120,
+        "datoCurioso": "En la costa colombiana existe la tradición del 'levantamuertos': un sancocho que se come después de una fiesta para recuperar energías.",
+        "historia": "El sancocho es mucho más que una sopa en Colombia, es un ritual social. En la costa Caribe, las familias se reúnen los domingos para preparar esta abundante sopa en grandes ollas. Cada región costera tiene su variación: algunos lo hacen con pescado, otros con gallina, y los más tradicionales con carne de res y cerdo. Lo que todos comparten es el uso generoso de tubérculos como yuca, ñame y plátano verde, que le dan su característico cuerpo. Es el plato de la unión familiar y las celebraciones.",
+        "descripcion": "Sopa abundante y reconfortante de la costa Caribe preparada con diferentes carnes, yuca, ñame, plátano verde y mazorca. Perfectamente sazonada con cilantro y cebolla, es ideal para compartir en familia.",
+        "popularidad": 88,
+        "departamento": {
+            "id": 1,
+            "nombre": "Atlántico",
+            "region": "Caribe"
+        },
+        "categoria": {
+            "id": 2,
+            "nombre": "Sopa"
+        },
+        "ingredientes": [
+            {
+                "id": 24,
+                "nombre": "Costilla de res",
+                "cantidad": "500g",
+                "tipo": "principal"
+            },
+            {
+                "id": 25,
+                "nombre": "Pollo",
+                "cantidad": "500g",
+                "tipo": "principal"
+            },
+            {
+                "id": 26,
+                "nombre": "Yuca",
+                "cantidad": "400g",
+                "tipo": "principal"
+            },
+            {
+                "id": 27,
+                "nombre": "Ñame",
+                "cantidad": "300g",
+                "tipo": "principal"
+            },
+            {
+                "id": 28,
+                "nombre": "Plátano verde",
+                "cantidad": "2 unidades",
+                "tipo": "principal"
+            },
+            {
+                "id": 29,
+                "nombre": "Mazorca",
+                "cantidad": "3 unidades",
+                "tipo": "principal"
+            },
+            {
+                "id": 30,
+                "nombre": "Cilantro",
+                "cantidad": "1 atado",
+                "tipo": "condimento"
+            },
+            {
+                "id": 31,
+                "nombre": "Cebolla larga",
+                "cantidad": "4 tallos",
+                "tipo": "condimento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 6,
+                "url": "https://images.unsplash.com/photo-1741026079032-7cb660e44bad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Sancocho servido caliente"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 6,
+                "usuario": "Roberto Pérez",
+                "calificacion": 5,
+                "comentario": "El mejor sancocho que he probado. Abundante y delicioso.",
+                "fecha": "2026-02-17"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Empanadas Valluna",
+        "porciones": 4,
+        "esDestacado": false,
+        "tiempoPreparacion": 45,
+        "datoCurioso": "Las empanadas valluna se diferencian por su masa a base de harina de maíz amarillo y su relleno de papa con hogao.",
+        "historia": "Las empanadas valluna son originarias del Valle del Cauca y se caracterizan por su masa de maíz amarillo que les da un color dorado distintivo. A diferencia de otras empanadas colombianas, estas llevan un relleno de papa criolla mezclada con hogao (salsa de tomate y cebolla). Se hornean o fríen y se sirven con ají picante. Son el acompañamiento perfecto para un pandebono o simplemente como refrigerio en cualquier momento del día.",
+        "descripcion": "Empanadas tradicionales del Valle del Cauca hechas con masa de maíz amarillo y rellenas de papa guisada con hogao. Se pueden preparar al horno o fritas, y se sirven con ají al gusto.",
+        "popularidad": 85,
+        "departamento": {
+            "id": 21,
+            "nombre": "Valle del Cauca",
+            "region": "Pacífica"
+        },
+        "categoria": {
+            "id": 3,
+            "nombre": "Entrada"
+        },
+        "ingredientes": [
+            {
+                "id": 32,
+                "nombre": "Harina de maíz amarillo",
+                "cantidad": "2 tazas",
+                "tipo": "base"
+            },
+            {
+                "id": 33,
+                "nombre": "Papa criolla",
+                "cantidad": "500g",
+                "tipo": "principal"
+            },
+            {
+                "id": 34,
+                "nombre": "Tomate",
+                "cantidad": "3 unidades",
+                "tipo": "condimento"
+            },
+            {
+                "id": 35,
+                "nombre": "Cebolla",
+                "cantidad": "1 unidad",
+                "tipo": "condimento"
+            },
+            {
+                "id": 36,
+                "nombre": "Comino",
+                "cantidad": "1 cdta",
+                "tipo": "condimento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 7,
+                "url": "https://images.unsplash.com/photo-1569072412439-e8cd5d6f22df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Empanadas doradas recién hechas"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 7,
+                "usuario": "Andrea Silva",
+                "calificacion": 4,
+                "comentario": "Deliciosas, aunque me gustan más fritas que al horno.",
+                "fecha": "2026-02-16"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Tamales Tolimenses",
+        "porciones": 6,
+        "esDestacado": true,
+        "tiempoPreparacion": 180,
+        "datoCurioso": "Envolver un tamal es todo un arte: las abuelas tolimenses pueden envolver hasta 100 tamales en un día.",
+        "historia": "Los tamales son un legado precolombino que se ha perfeccionado durante siglos. En el Tolima, el tamal se convirtió en una tradición dominical inseparable. Las familias se levantan temprano para preparar decenas de tamales que se comparten con vecinos y familiares. La receta incluye una masa de arroz y arveja molida, rellena con carne de cerdo, pollo, huevo duro y vegetales, todo envuelto en hojas de plátano y cocido durante horas. Cada familia tiene su 'secreto' en el sazón, transmitido generación tras generación.",
+        "descripcion": "El tamal tolimense es un tesoro gastronómico colombiano. Una masa de arroz y arveja envuelve un generoso relleno de carne de cerdo, pollo, zanahoria, arveja y huevo duro. Todo cocido lentamente en hojas de plátano que le dan su aroma característico.",
+        "popularidad": 91,
         "departamento": {
             "id": 17,
-            "nombre": "Tolima"
+            "nombre": "Tolima",
+            "region": "Andina"
         },
         "categoria": {
             "id": 1,
             "nombre": "Plato Fuerte"
         },
-        "imagen": "https://images.unsplash.com/photo-1718395012128-a6d204223093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0YW1hbGVzJTIwY29sb21iaWFuJTIwdHJhZGl0aW9uYWx8ZW58MXx8fHwxNzcxNDcyMzQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "media"
+        "ingredientes": [
+            {
+                "id": 37,
+                "nombre": "Arroz",
+                "cantidad": "2 tazas",
+                "tipo": "base"
+            },
+            {
+                "id": 38,
+                "nombre": "Arveja seca",
+                "cantidad": "1 taza",
+                "tipo": "base"
+            },
+            {
+                "id": 39,
+                "nombre": "Carne de cerdo",
+                "cantidad": "400g",
+                "tipo": "principal"
+            },
+            {
+                "id": 40,
+                "nombre": "Pollo",
+                "cantidad": "300g",
+                "tipo": "principal"
+            },
+            {
+                "id": 41,
+                "nombre": "Huevo duro",
+                "cantidad": "6 unidades",
+                "tipo": "principal"
+            },
+            {
+                "id": 42,
+                "nombre": "Zanahoria",
+                "cantidad": "2 unidades",
+                "tipo": "adicional"
+            },
+            {
+                "id": 43,
+                "nombre": "Hojas de plátano",
+                "cantidad": "12 unidades",
+                "tipo": "base"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 8,
+                "url": "https://images.unsplash.com/photo-1718395012128-a6d204223093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Tamal tolimense tradicional"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 8,
+                "usuario": "Pedro Ramírez",
+                "calificacion": 5,
+                "comentario": "Auténtico sabor tolimense. Me transporta a los domingos en casa de mi abuela.",
+                "fecha": "2026-02-14"
+            }
+        ]
     },
     {
-        "id": "arroz-coco",
+        "id": 7,
         "nombre": "Arroz con Coco",
+        "porciones": 4,
+        "esDestacado": false,
+        "tiempoPreparacion": 60,
+        "datoCurioso": "El 'titote' (la costra dorada del fondo) es la parte más codiciada del arroz con coco.",
+        "historia": "El arroz con coco es una herencia de la cocina afrocaribena en la costa colombiana. Llegó con los esclavos africanos que combinaron sus técnicas culinarias con los ingredientes locales del Caribe. El proceso tradicional incluye rallar coco fresco, extraer su leche y cocinar el arroz hasta que se forma el codiciado 'titote', una costra crujiente en el fondo de la olla. Este plato es el acompañamiento perfecto para pescado frito y es infaltable en las celebraciones costeñas.",
+        "descripcion": "Arroz aromático cocinado con leche de coco fresco que le da un sabor dulce y una textura cremosa única. El secreto está en lograr el 'titote', una deliciosa costra dorada en el fondo. Es el acompañamiento perfecto para pescado frito.",
+        "popularidad": 87,
         "departamento": {
             "id": 2,
-            "nombre": "Bolívar"
+            "nombre": "Bolívar",
+            "region": "Caribe"
         },
         "categoria": {
             "id": 4,
             "nombre": "Acompañamiento"
         },
-        "imagen": "https://images.unsplash.com/photo-1505216980056-a7b7b1c6e000?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnJveiUyMGNvbiUyMGNvY28lMjBsYXRpbnxlbnwxfHx8fDE3NzE0NzIzNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "media"
+        "ingredientes": [
+            {
+                "id": 44,
+                "nombre": "Arroz",
+                "cantidad": "2 tazas",
+                "tipo": "base"
+            },
+            {
+                "id": 45,
+                "nombre": "Coco rallado",
+                "cantidad": "1 unidad grande",
+                "tipo": "principal"
+            },
+            {
+                "id": 46,
+                "nombre": "Azúcar",
+                "cantidad": "2 cdas",
+                "tipo": "condimento"
+            },
+            {
+                "id": 47,
+                "nombre": "Sal",
+                "cantidad": "1 cdta",
+                "tipo": "condimento"
+            },
+            {
+                "id": 48,
+                "nombre": "Pasas (opcional)",
+                "cantidad": "1/4 taza",
+                "tipo": "adicional"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 9,
+                "url": "https://images.unsplash.com/photo-1505216980056-a7b7b1c6e000?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Arroz con coco cremoso"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 9,
+                "usuario": "Camila López",
+                "calificacion": 5,
+                "comentario": "Delicioso! El titote quedó perfecto.",
+                "fecha": "2026-02-19"
+            }
+        ]
     },
     {
-        "id": "bunuelos",
+        "id": 8,
+        "nombre": "Rondón",
+        "porciones": 6,
+        "esDestacado": true,
+        "tiempoPreparacion": 90,
+        "datoCurioso": "El nombre 'rondón' viene del inglés 'run down', que describe cómo los ingredientes se 'corren' en la leche de coco durante la cocción.",
+        "historia": "El rondón es el plato más emblemático de San Andrés y Providencia, con raíces en la cocina afroanglocaribeña. Este guiso representa la fusión cultural de las islas: combina técnicas africanas, ingredientes locales del Caribe e influencia británica. Tradicionalmente se preparaba con caracol de mar (simmering), pero hoy también se hace con pescado, yuca, ñame y domplines (bolas de masa). Todo se cocina lentamente en leche de coco fresca, creando un caldo espeso y aromático que es el alma de la cocina raizal.",
+        "descripcion": "Guiso tradicional raizal de San Andrés cocinado con caracol o pescado, yuca, ñame, domplines y leche de coco. Es el plato más representativo de la cultura isleña, con influencia afroanglocaribeña que lo hace único en Colombia.",
+        "popularidad": 94,
+        "departamento": {
+            "id": 32,
+            "nombre": "San Andrés y Providencia",
+            "region": "Insular"
+        },
+        "categoria": {
+            "id": 1,
+            "nombre": "Plato Fuerte"
+        },
+        "ingredientes": [
+            {
+                "id": 49,
+                "nombre": "Pescado fresco (pargo o mero)",
+                "cantidad": "800g",
+                "tipo": "principal"
+            },
+            {
+                "id": 50,
+                "nombre": "Caracol de mar (opcional)",
+                "cantidad": "300g",
+                "tipo": "principal"
+            },
+            {
+                "id": 51,
+                "nombre": "Leche de coco",
+                "cantidad": "2 tazas",
+                "tipo": "base"
+            },
+            {
+                "id": 52,
+                "nombre": "Yuca",
+                "cantidad": "400g",
+                "tipo": "principal"
+            },
+            {
+                "id": 53,
+                "nombre": "Ñame",
+                "cantidad": "300g",
+                "tipo": "principal"
+            },
+            {
+                "id": 54,
+                "nombre": "Plátano verde",
+                "cantidad": "2 unidades",
+                "tipo": "principal"
+            },
+            {
+                "id": 55,
+                "nombre": "Harina de trigo (para domplines)",
+                "cantidad": "1 taza",
+                "tipo": "adicional"
+            },
+            {
+                "id": 56,
+                "nombre": "Ají picante isleño",
+                "cantidad": "al gusto",
+                "tipo": "condimento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 10,
+                "url": "https://images.unsplash.com/photo-1641529148223-093a513ed44e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Rondón tradicional isleño"
+            },
+            {
+                "id": 11,
+                "url": "https://images.unsplash.com/photo-1723502436286-3cd289e2a148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "contexto",
+                "descripcion": "Playa de San Andrés"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 10,
+                "usuario": "Jennifer Campbell",
+                "calificacion": 5,
+                "comentario": "Authentic raizal flavor! Just like my grandmother used to make it.",
+                "fecha": "2026-02-21"
+            },
+            {
+                "id": 11,
+                "usuario": "Miguel Ángel Castro",
+                "calificacion": 5,
+                "comentario": "El mejor rondón que he probado fuera de San Andrés. Auténtico sabor isleño.",
+                "fecha": "2026-02-18"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "Sopa de Cangrejo",
+        "porciones": 4,
+        "esDestacado": false,
+        "tiempoPreparacion": 75,
+        "datoCurioso": "El cangrejo negro de San Andrés es único de las islas y le da un sabor especial a esta sopa.",
+        "historia": "La sopa de cangrejo es un tesoro culinario de San Andrés y Providencia. Se prepara con el famoso cangrejo negro que habita las islas, conocido por su carne dulce y delicada. Esta receta combina la tradición raizal con toques caribeños: el cangrejo se cocina con leche de coco, ñame, plátano y especias. Es un plato que representa la abundancia del mar que rodea las islas y es especialmente popular en las celebraciones familiares y fiestas patronales.",
+        "descripcion": "Sopa cremosa preparada con cangrejo negro de las islas, cocinada en leche de coco con ñame, yuca y plátano verde. Un plato lleno de sabor marino y la esencia del Caribe colombiano.",
+        "popularidad": 82,
+        "departamento": {
+            "id": 32,
+            "nombre": "San Andrés y Providencia",
+            "region": "Insular"
+        },
+        "categoria": {
+            "id": 2,
+            "nombre": "Sopa"
+        },
+        "ingredientes": [
+            {
+                "id": 57,
+                "nombre": "Cangrejo negro",
+                "cantidad": "4 unidades grandes",
+                "tipo": "principal"
+            },
+            {
+                "id": 58,
+                "nombre": "Leche de coco",
+                "cantidad": "1.5 tazas",
+                "tipo": "base"
+            },
+            {
+                "id": 59,
+                "nombre": "Ñame",
+                "cantidad": "200g",
+                "tipo": "principal"
+            },
+            {
+                "id": 60,
+                "nombre": "Yuca",
+                "cantidad": "200g",
+                "tipo": "principal"
+            },
+            {
+                "id": 61,
+                "nombre": "Plátano verde",
+                "cantidad": "1 unidad",
+                "tipo": "principal"
+            },
+            {
+                "id": 62,
+                "nombre": "Ají chombo",
+                "cantidad": "1 unidad",
+                "tipo": "condimento"
+            },
+            {
+                "id": 63,
+                "nombre": "Cilantro",
+                "cantidad": "1/2 taza",
+                "tipo": "condimento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 12,
+                "url": "https://images.unsplash.com/photo-1658162389310-ba38894fa0c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Sopa de cangrejo cremosa"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 12,
+                "usuario": "Sandra Archbold",
+                "calificacion": 4,
+                "comentario": "Muy buena, aunque extraño el cangrejo fresco de la isla.",
+                "fecha": "2026-02-15"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "nombre": "Lechona Tolimense",
+        "porciones": 15,
+        "esDestacado": true,
+        "tiempoPreparacion": 600,
+        "datoCurioso": "Una lechona tradicional puede pesar hasta 70 kilos y alimentar a más de 100 personas en una celebración.",
+        "historia": "La lechona es el plato festivo por excelencia del Tolima y Huila. Su preparación es un evento social que puede tomar todo un día. Se rellena un cerdo entero con arroz, carne de cerdo, arveja y especias, luego se asa lentamente en horno de barro durante 10-12 horas. El resultado es una piel crujiente como vidrio y una carne tierna y jugosa. Ninguna fiesta tolimense está completa sin lechona, y las familias hacen fila en las lechonerías desde la madrugada para conseguir la mejor porción.",
+        "descripcion": "Cerdo entero relleno de arroz, carne de cerdo, arveja y especias, asado lentamente durante horas. La piel queda increíblemente crujiente y el relleno jugoso y aromático. Es el plato de celebración por excelencia.",
+        "popularidad": 96,
+        "departamento": {
+            "id": 17,
+            "nombre": "Tolima",
+            "region": "Andina"
+        },
+        "categoria": {
+            "id": 1,
+            "nombre": "Plato Fuerte"
+        },
+        "ingredientes": [
+            {
+                "id": 64,
+                "nombre": "Cerdo entero",
+                "cantidad": "1 unidad (30-40kg)",
+                "tipo": "principal"
+            },
+            {
+                "id": 65,
+                "nombre": "Arroz",
+                "cantidad": "5 kg",
+                "tipo": "base"
+            },
+            {
+                "id": 66,
+                "nombre": "Carne de cerdo",
+                "cantidad": "3 kg",
+                "tipo": "principal"
+            },
+            {
+                "id": 67,
+                "nombre": "Arveja verde",
+                "cantidad": "2 kg",
+                "tipo": "principal"
+            },
+            {
+                "id": 68,
+                "nombre": "Cebolla larga",
+                "cantidad": "500g",
+                "tipo": "condimento"
+            },
+            {
+                "id": 69,
+                "nombre": "Comino",
+                "cantidad": "100g",
+                "tipo": "condimento"
+            },
+            {
+                "id": 70,
+                "nombre": "Pimienta",
+                "cantidad": "50g",
+                "tipo": "condimento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 13,
+                "url": "https://images.unsplash.com/photo-1544025162-d76694265947?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Lechona con piel crujiente"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 13,
+                "usuario": "Fernando Rojas",
+                "calificacion": 5,
+                "comentario": "¡Espectacular! La piel quedó como vidrio, perfecta.",
+                "fecha": "2026-02-13"
+            },
+            {
+                "id": 14,
+                "usuario": "Laura Moreno",
+                "calificacion": 5,
+                "comentario": "La mejor lechona que he probado. Vale cada minuto de espera.",
+                "fecha": "2026-02-11"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "nombre": "Mote de Queso",
+        "porciones": 6,
+        "esDestacado": false,
+        "tiempoPreparacion": 90,
+        "datoCurioso": "El mote de queso es conocido como el 'levantamuertos' perfecto después de una noche de fiesta.",
+        "historia": "El mote de queso es una sopa emblemática de la región Caribe, especialmente de Córdoba y Sucre. Combina ñame cocinado hasta deshacerse con queso costeño que se derrite formando hilos. La historia cuenta que las abuelas preparaban grandes ollas de mote para alimentar a toda la familia y vecinos. Es un plato que reconforta el alma, perfecto para cualquier ocasión pero especialmente popular como 'levantamuertos' después de celebraciones.",
+        "descripcion": "Sopa cremosa de ñame con generosas cantidades de queso costeño que se derrite creando hilos. Lleva suero costeño que le da un toque ácido único. Es reconfortante, abundante y perfecta para compartir.",
+        "popularidad": 86,
+        "departamento": {
+            "id": 4,
+            "nombre": "Córdoba",
+            "region": "Caribe"
+        },
+        "categoria": {
+            "id": 2,
+            "nombre": "Sopa"
+        },
+        "ingredientes": [
+            {
+                "id": 71,
+                "nombre": "Ñame",
+                "cantidad": "1 kg",
+                "tipo": "base"
+            },
+            {
+                "id": 72,
+                "nombre": "Queso costeño",
+                "cantidad": "400g",
+                "tipo": "principal"
+            },
+            {
+                "id": 73,
+                "nombre": "Suero costeño",
+                "cantidad": "1 taza",
+                "tipo": "principal"
+            },
+            {
+                "id": 74,
+                "nombre": "Cebolla larga",
+                "cantidad": "4 tallos",
+                "tipo": "condimento"
+            },
+            {
+                "id": 75,
+                "nombre": "Ajo",
+                "cantidad": "3 dientes",
+                "tipo": "condimento"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 14,
+                "url": "https://images.unsplash.com/photo-1588566565463-180a5b2090d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Mote de queso cremoso"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 15,
+                "usuario": "Daniela Herrera",
+                "calificacion": 5,
+                "comentario": "Delicioso! El queso hace hilos perfectos.",
+                "fecha": "2026-02-20"
+            }
+        ]
+    },
+    {
+        "id": 12,
         "nombre": "Buñuelos",
+        "porciones": 12,
+        "esDestacado": false,
+        "tiempoPreparacion": 60,
+        "datoCurioso": "En Colombia, hacer buñuelos esponjosos por dentro y crujientes por fuera es considerado todo un arte.",
+        "historia": "Los buñuelos llegaron a Colombia con los españoles pero se transformaron completamente con ingredientes locales. En Colombia, se hacen con queso fresco y almidón de yuca, lo que les da una textura única. Son infaltables en la época navideña, donde se comen con natilla y hojuelas. Cada región tiene su técnica: algunos los prefieren más grandes, otros más pequeños, pero todos comparten el amor por estos bocados dorados.",
+        "descripcion": "Bolitas fritas de masa de queso, esponjosas por dentro y doradas por fuera. Son el acompañamiento perfecto para chocolate caliente o café. Tradicionales en Navidad pero deliciosos todo el año.",
+        "popularidad": 93,
         "departamento": {
             "id": 21,
-            "nombre": "Valle del Cauca"
+            "nombre": "Valle del Cauca",
+            "region": "Pacífica"
         },
         "categoria": {
             "id": 5,
             "nombre": "Postre"
         },
-        "imagen": "https://images.unsplash.com/photo-1760726361546-dcf52a0bb5da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidSVDMyVCMXVlbG9zJTIwbGF0aW4lMjBhbWVyaWNhbnxlbnwxfHx8fDE3NzE0NzIzNDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-        "popularidad": "alta"
+        "ingredientes": [
+            {
+                "id": 76,
+                "nombre": "Queso fresco",
+                "cantidad": "500g",
+                "tipo": "principal"
+            },
+            {
+                "id": 77,
+                "nombre": "Almidón de yuca",
+                "cantidad": "2 tazas",
+                "tipo": "base"
+            },
+            {
+                "id": 78,
+                "nombre": "Huevo",
+                "cantidad": "2 unidades",
+                "tipo": "principal"
+            },
+            {
+                "id": 79,
+                "nombre": "Azúcar",
+                "cantidad": "2 cdas",
+                "tipo": "condimento"
+            },
+            {
+                "id": 80,
+                "nombre": "Polvo de hornear",
+                "cantidad": "1 cdta",
+                "tipo": "adicional"
+            }
+        ],
+        "galeria": [
+            {
+                "id": 15,
+                "url": "https://images.unsplash.com/photo-1760726361546-dcf52a0bb5da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+                "tipo": "principal",
+                "descripcion": "Buñuelos dorados recién fritos"
+            }
+        ],
+        "comentarios": [
+            {
+                "id": 16,
+                "usuario": "Mónica Vargas",
+                "calificacion": 4,
+                "comentario": "Muy buenos, aunque los prefiero más grandes.",
+                "fecha": "2026-02-12"
+            }
+        ]
     }
 ]
