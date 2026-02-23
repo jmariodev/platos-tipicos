@@ -1,59 +1,70 @@
-# PlatosTipicos
+# Platos Típicos 🍽️
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Este es un proyecto web desarrollado con **Angular 21** y estilizado usando **Tailwind CSS**. La aplicación utiliza **pnpm** como gestor de paquetes e incluye íconos de **Lucide**.
 
-## Development server
+## 📋 Requisitos Previos
 
-To start a local development server, run:
+Antes de comenzar, asegúrate de tener instalados los siguientes componentes en tu sistema:
 
-```bash
-ng serve
-```
+- [Node.js](https://nodejs.org/) (se recomienda una versión LTS reciente)
+- [pnpm](https://pnpm.io/) (Puedes instalarlo ejecutando `npm install -g pnpm`)
+- [Git](https://git-scm.com/)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Cómo descargar el proyecto
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Para obtener una copia de este proyecto en tu máquina local, abre tu terminal y ejecuta los siguientes comandos:
 
 ```bash
-ng generate component component-name
+# Clona el repositorio
+git clone <url-del-repositorio>
+
+# Entra al directorio del proyecto
+cd platos-tipicos
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+_(Nota: Asegúrate de reemplazar `<url-del-repositorio>` con la URL real de tu repositorio de Git)._
+
+## 📦 Instalación de dependencias
+
+Una vez dentro de la carpeta del proyecto, debes instalar todas las bibliotecas y dependencias necesarias. Ejecuta:
 
 ```bash
-ng generate --help
+pnpm install
 ```
 
-## Building
+## 🛠️ Cómo correr el proyecto (Desarrollo)
 
-To build the project run:
+Para iniciar el servidor de desarrollo local y previsualizar la aplicación, ejecuta:
 
 ```bash
-ng build
+pnpm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+_(Este comando ejecuta internamente `ng serve`)._
 
-## Running unit tests
+Una vez que el servidor esté en funcionamiento, abre tu navegador web y visita:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+👉 **[http://localhost:4200/](http://localhost:4200/)**
 
-```bash
-ng test
-```
+La aplicación detectará los cambios en los archivos fuente y se recargará automáticamente mientras desarrollas.
 
-## Running end-to-end tests
+## ⚙️ Otros comandos útiles
 
-For end-to-end (e2e) testing, run:
+El proyecto cuenta con comandos adicionales configurados en su `package.json`:
 
-```bash
-ng e2e
-```
+- **Construir el proyecto (Producción):**
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+  ```bash
+  pnpm run build
+  ```
 
-## Additional Resources
+  Esto compilará y optimizará los archivos para producción, guardándolos en la carpeta `dist/`.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Ejecutar pruebas unitarias (Configurado con Vitest):**
+  ```bash
+  pnpm run test
+  ```
+
+---
+
+_Proyecto generado utilizando [Angular CLI](https://github.com/angular/angular-cli) versión 21.1.4._
