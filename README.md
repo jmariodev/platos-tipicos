@@ -2,6 +2,11 @@
 
 Este es un proyecto web desarrollado con **Angular 21** y estilizado usando **Tailwind CSS**. La aplicación utiliza **pnpm** como gestor de paquetes e incluye íconos de **Lucide**.
 
+## 🌍 Demo en Vivo
+
+El proyecto se encuentra desplegado en Vercel para facilitar su prueba y revisión:
+👉 **[https://platos-tipicos.vercel.app/](https://platos-tipicos.vercel.app/)**
+
 ## 📋 Requisitos Previos
 
 Antes de comenzar, asegúrate de tener instalados los siguientes componentes en tu sistema:
