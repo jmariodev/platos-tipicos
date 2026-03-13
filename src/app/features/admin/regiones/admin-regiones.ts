@@ -43,7 +43,7 @@ export class AdminRegiones {
             imagen: r.imagen.trim(),
             color: r.color.trim() || 'from-gray-400/80 to-gray-600/80',
             departamentos: [],
-        });
+        }).subscribe();
         this.nuevaRegion.set({ nombre: '', descripcion: '', imagen: '', color: '' });
     }
 
@@ -70,26 +70,26 @@ export class AdminRegiones {
             descripcion: r.descripcion.trim(),
             imagen: r.imagen.trim(),
             color: r.color.trim(),
-        });
+        }).subscribe();
         this.cancelarEdicionRegion();
     }
 
     eliminarRegion(id: number) {
         if (confirm('¿Estás seguro de eliminar esta región y todos sus departamentos?')) {
-            this.regionRepo.deleteRegion(id);
+            this.regionRepo.deleteRegion(id).subscribe();
         }
     }
 
     agregarDepartamento(regionId: number) {
         const nombre = (this.nuevoDepartamento()[regionId] || '').trim();
         if (!nombre) return;
-        this.regionRepo.addDepartamento(regionId, { id: 0, nombre });
+        this.regionRepo.addDepartamento(regionId, { id: 0, nombre }).subscribe();
         this.nuevoDepartamento.update(d => ({ ...d, [regionId]: '' }));
     }
 
     eliminarDepartamento(regionId: number, departamentoId: number) {
         if (confirm('¿Eliminar este departamento?')) {
-            this.regionRepo.deleteDepartamento(regionId, departamentoId);
+            this.regionRepo.deleteDepartamento(regionId, departamentoId).subscribe();
         }
     }
 

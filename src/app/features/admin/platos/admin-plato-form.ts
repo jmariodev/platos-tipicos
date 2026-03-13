@@ -185,12 +185,12 @@ export class AdminPlatoForm implements OnInit {
             comentarios: [],
         };
 
-        if (this.isEditing()) {
-            this.platoRepo.updatePlato(plato);
-        } else {
-            this.platoRepo.addPlato(plato);
-        }
+        const op = this.isEditing()
+            ? this.platoRepo.updatePlato(plato)
+            : this.platoRepo.addPlato(plato);
 
-        this.router.navigate(['/admin/platos']);
+        op.subscribe(() => {
+            this.router.navigate(['/admin/platos']);
+        });
     }
 }

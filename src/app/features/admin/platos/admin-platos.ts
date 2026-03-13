@@ -29,7 +29,7 @@ export class AdminPlatos {
 
     eliminarPlato(id: number) {
         if (confirm('¿Estás seguro de eliminar este plato?')) {
-            this.platoRepo.deletePlato(id);
+            this.platoRepo.deletePlato(id).subscribe();
         }
     }
 

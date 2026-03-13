@@ -23,7 +23,7 @@ export class AdminCategorias {
     agregar() {
         const nombre = this.nuevaCategoria().trim();
         if (!nombre) return;
-        this.categoriaRepo.addCategoria({ id: 0, nombre });
+        this.categoriaRepo.addCategoria({ id: 0, nombre }).subscribe();
         this.nuevaCategoria.set('');
     }
 
@@ -41,13 +41,13 @@ export class AdminCategorias {
         const id = this.editandoId();
         const nombre = this.editandoNombre().trim();
         if (!id || !nombre) return;
-        this.categoriaRepo.updateCategoria({ id, nombre });
+        this.categoriaRepo.updateCategoria({ id, nombre }).subscribe();
         this.cancelarEdicion();
     }
 
     eliminar(id: number) {
         if (confirm('¿Estás seguro de eliminar esta categoría?')) {
-            this.categoriaRepo.deleteCategoria(id);
+            this.categoriaRepo.deleteCategoria(id).subscribe();
         }
     }
 }
