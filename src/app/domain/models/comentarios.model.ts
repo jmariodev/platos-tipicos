@@ -1,7 +1,6 @@
 export interface Comentarios {
-    id: number;
-    usuario: string;
-    calificacion: number;
-    comentario: string;
-    fecha: string;
+  id?: number;
+  nombre: string;
+  comentario: string;
+  fecha: Date;
 }
