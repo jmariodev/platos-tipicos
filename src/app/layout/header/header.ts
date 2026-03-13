@@ -21,9 +21,10 @@ export class Header {
     { initialValue: this.router.url }
   );
 
-  isAdminRoute = computed(() =>
-    this.currentUrl().startsWith('/admin')
-  );
+  isAdminRoute = computed(() => {
+    const url = this.currentUrl();
+    return url.startsWith('/admin') || url.startsWith('/login');
+  });
 
   toggleMenu() {
     this.isMenuOpen.update(value => !value);

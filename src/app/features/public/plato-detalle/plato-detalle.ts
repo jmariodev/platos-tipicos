@@ -41,8 +41,9 @@ export class PlatoDetalle {
       this.plato()?.comentarios.push({
         id: this.plato()!.comentarios.length + 1,
         usuario: this.comentarioForm.value.usuario!,
+        calificacion: 5,
         comentario: this.comentarioForm.value.texto!,
-        fecha: new Date()
+        fecha: new Date().toISOString().split('T')[0]
       });
       // Llamar el servicio para guardar el comentario
       this.comentarioForm.reset(); // Limpia el formulario tras publicar

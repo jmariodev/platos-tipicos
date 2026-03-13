@@ -1,5 +1,6 @@
 export interface Galeria {
-    id: string;
+    id: number;
     url: string;
-    esPrincipal: boolean;
+    tipo: string;
+    descripcion: string;
 }

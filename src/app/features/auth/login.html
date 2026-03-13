@@ -1,0 +1,160 @@
+<div class="min-h-screen bg-[color:var(--blanco-calido)] flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a routerLink="/" class="inline-flex items-center gap-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-[color:var(--terracota)] to-[color:var(--terracota-dark)] rounded-xl flex items-center justify-center shadow-md">
+                    <span class="text-white text-2xl">🍲</span>
+                </div>
+                <div class="text-left">
+                    <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Platos <span class="text-[color:var(--terracota-dark)]">Típicos</span></h1>
+                    <p class="text-xs text-[color:var(--tierra)]">Panel de Administración</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card -->
+        <div class="bg-white rounded-2xl shadow-lg border p-8">
+
+            <!-- Tabs -->
+            <div class="flex border-b mb-6">
+                <button (click)="cambiarModo('login')"
+                    class="flex-1 pb-3 text-center transition-colors"
+                    [class.text-[color:var(--terracota)]]="modo() === 'login'"
+                    [class.border-b-2]="modo() === 'login'"
+                    [class.border-[color:var(--terracota)]]="modo() === 'login'"
+                    [class.text-[color:var(--tierra)]]="modo() !== 'login'">
+                    Iniciar Sesión
+                </button>
+                <button (click)="cambiarModo('registro')"
+                    class="flex-1 pb-3 text-center transition-colors"
+                    [class.text-[color:var(--terracota)]]="modo() === 'registro'"
+                    [class.border-b-2]="modo() === 'registro'"
+                    [class.border-[color:var(--terracota)]]="modo() === 'registro'"
+                    [class.text-[color:var(--tierra)]]="modo() !== 'registro'">
+                    Crear Cuenta
+                </button>
+            </div>
+
+            <!-- Error -->
+            @if (error()) {
+                <div class="mb-4 px-4 py-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-600">
+                    {{ error() }}
+                </div>
+            }
+
+            <!-- Login Form -->
+            @if (modo() === 'login') {
+                <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()" class="space-y-4">
+                    <div>
+                        <label class="block text-sm text-[color:var(--tierra)] mb-1">Correo electrónico</label>
+                        <div class="relative">
+                            <lucide-icon name="mail" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[color:var(--tierra-light)]"></lucide-icon>
+                            <input formControlName="correo" type="email" placeholder="tu@correo.com"
+                                class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 bg-[color:var(--blanco-calido)]">
+                        </div>
+                        @if (loginForm.get('correo')?.touched && loginForm.get('correo')?.errors) {
+                            <p class="text-xs text-red-500 mt-1">Ingresa un correo válido</p>
+                        }
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-[color:var(--tierra)] mb-1">Contraseña</label>
+                        <input formControlName="password" type="password" placeholder="••••••••"
+                            class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 bg-[color:var(--blanco-calido)]">
+                        @if (loginForm.get('password')?.touched && loginForm.get('password')?.errors) {
+                            <p class="text-xs text-red-500 mt-1">La contraseña es obligatoria</p>
+                        }
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-3 bg-[color:var(--terracota)] text-white rounded-lg hover:bg-[color:var(--terracota-dark)] transition-colors">
+                        Iniciar Sesión
+                    </button>
+
+                    <p class="text-center text-sm text-[color:var(--tierra)]">
+                        ¿No tienes cuenta?
+                        <button type="button" (click)="cambiarModo('registro')" class="text-[color:var(--terracota)] hover:underline">
+                            Crear una aquí
+                        </button>
+                    </p>
+                </form>
+            }
+
+            <!-- Registro Form -->
+            @if (modo() === 'registro') {
+                <form [formGroup]="registroForm" (ngSubmit)="registrarse()" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm text-[color:var(--tierra)] mb-1">Nombre</label>
+                            <input formControlName="nombre" type="text" placeholder="Juan"
+                                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 bg-[color:var(--blanco-calido)]">
+                            @if (registroForm.get('nombre')?.touched && registroForm.get('nombre')?.errors) {
+                                <p class="text-xs text-red-500 mt-1">Mínimo 2 caracteres</p>
+                            }
+                        </div>
+                        <div>
+                            <label class="block text-sm text-[color:var(--tierra)] mb-1">Apellido</label>
+                            <input formControlName="apellido" type="text" placeholder="Pérez"
+                                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 bg-[color:var(--blanco-calido)]">
+                            @if (registroForm.get('apellido')?.touched && registroForm.get('apellido')?.errors) {
+                                <p class="text-xs text-red-500 mt-1">Mínimo 2 caracteres</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-[color:var(--tierra)] mb-1">Número de contacto</label>
+                        <input formControlName="contacto" type="tel" placeholder="300 123 4567"
+                            class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 bg-[color:var(--blanco-calido)]">
+                        @if (registroForm.get('contacto')?.touched && registroForm.get('contacto')?.errors) {
+                            <p class="text-xs text-red-500 mt-1">El contacto es obligatorio</p>
+                        }
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-[color:var(--tierra)] mb-1">Correo electrónico</label>
+                        <div class="relative">
+                            <lucide-icon name="mail" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[color:var(--tierra-light)]"></lucide-icon>
+                            <input formControlName="correo" type="email" placeholder="tu@correo.com"
+                                class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 bg-[color:var(--blanco-calido)]">
+                        </div>
+                        @if (registroForm.get('correo')?.touched && registroForm.get('correo')?.errors) {
+                            <p class="text-xs text-red-500 mt-1">Ingresa un correo válido</p>
+                        }
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-[color:var(--tierra)] mb-1">Contraseña</label>
+                        <input formControlName="password" type="password" placeholder="Mínimo 6 caracteres"
+                            class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 bg-[color:var(--blanco-calido)]">
+                        @if (registroForm.get('password')?.touched && registroForm.get('password')?.errors) {
+                            <p class="text-xs text-red-500 mt-1">Mínimo 6 caracteres</p>
+                        }
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-3 bg-[color:var(--terracota)] text-white rounded-lg hover:bg-[color:var(--terracota-dark)] transition-colors">
+                        Crear Cuenta
+                    </button>
+
+                    <p class="text-center text-sm text-[color:var(--tierra)]">
+                        ¿Ya tienes cuenta?
+                        <button type="button" (click)="cambiarModo('login')" class="text-[color:var(--terracota)] hover:underline">
+                            Iniciar sesión
+                        </button>
+                    </p>
+                </form>
+            }
+        </div>
+
+        <!-- Back link -->
+        <div class="text-center mt-6">
+            <a routerLink="/" class="inline-flex items-center gap-2 text-sm text-[color:var(--tierra)] hover:text-[color:var(--terracota)] transition-colors">
+                <lucide-icon name="arrow-left" class="w-4 h-4"></lucide-icon>
+                Volver al sitio
+            </a>
+        </div>
+    </div>
+</div>

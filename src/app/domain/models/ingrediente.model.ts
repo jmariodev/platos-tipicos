@@ -1,4 +1,6 @@
 export interface Ingrediente {
-    id: string;
+    id: number;
     nombre: string;
+    cantidad: string;
+    tipo: string;
 }
