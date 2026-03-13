@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { Home } from './features/public/home/home';
 import { Platos } from './features/public/platos/platos';
 import { PlatoDetalle } from './features/public/plato-detalle/plato-detalle';
+import { Login } from './features/auth/login';
+import { authGuard } from './features/auth/auth.guard';
 import { AdminLayout } from './features/admin/admin-layout/admin-layout';
 import { AdminDashboard } from './features/admin/dashboard/dashboard';
 import { AdminPlatos } from './features/admin/platos/admin-platos';
@@ -27,8 +29,13 @@ export const routes: Routes = [
         component: PlatoDetalle
     },
     {
+        path: 'login',
+        component: Login
+    },
+    {
         path: 'admin',
         component: AdminLayout,
+        canActivate: [authGuard],
         children: [
             { path: '', component: AdminDashboard },
             { path: 'platos', component: AdminPlatos },
