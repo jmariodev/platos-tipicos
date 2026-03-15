@@ -53,6 +53,7 @@ export class AdminCategorias implements OnInit {
   limpiarFormulario() {
     this.editandoId.set(null);
     this.editandoNombre.set('');
+    this.nuevaCategoria.set('');
   }
 
   guardarEdicion() {
