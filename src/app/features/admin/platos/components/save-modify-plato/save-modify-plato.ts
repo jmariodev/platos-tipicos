@@ -202,7 +202,6 @@ export class SaveModifyPlato implements OnInit {
     }
 
     const val = this.form.value;
-    debugger;
 
     if (!val.categoria || !val.departamento) return;
     delete val.departamento.regionId;
@@ -223,23 +222,9 @@ export class SaveModifyPlato implements OnInit {
       usuario: this.sessionState.usuario()!,
     };
 
-    /*c onst op = this.isEditing()
-      ? this.platoRepo.updatePlato(plato)
-      : this.platoRepo.addPlato(plato);
-
-    op.subscribe({
-      next: () => {
-        this.router.navigate(['/admin/platos']);
-      },
-      error: (err) => {
-        alert('Error al guardar el plato /n' + err);
-        console.error(err);
-      },
-    }); */
-
     if (this.isEditing()) {
       const platoActualizado = await lastValueFrom(this.platoRepo.updatePlato(plato));
-      debugger;
+
       if (!platoActualizado || platoActualizado.id == null) {
         alert('Error al actualizar el plato');
         return;
