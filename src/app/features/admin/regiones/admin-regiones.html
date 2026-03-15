@@ -1,125 +1,77 @@
 <div class="space-y-6">
-    <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Gestión de Regiones y Departamentos</h1>
+  <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Gestión de Regiones y Departamentos</h1>
 
-    <!-- Agregar nueva región -->
-    <div class="bg-white rounded-xl shadow-sm border p-6">
-        <h2 class="text-lg text-[color:var(--cafe-oscuro)] mb-4">Nueva Región</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-            <input type="text" placeholder="Nombre de la región *"
-                class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
-                [ngModel]="nuevaRegion().nombre" (ngModelChange)="updateNuevaRegion('nombre', $event)">
-            <input type="text" placeholder="Descripción"
-                class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
-                [ngModel]="nuevaRegion().descripcion" (ngModelChange)="updateNuevaRegion('descripcion', $event)">
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-            <input type="text" placeholder="URL de imagen"
-                class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
-                [ngModel]="nuevaRegion().imagen" (ngModelChange)="updateNuevaRegion('imagen', $event)">
-            <input type="text" placeholder="Color (ej: from-blue-400/80 to-cyan-600/80)"
-                class="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
-                [ngModel]="nuevaRegion().color" (ngModelChange)="updateNuevaRegion('color', $event)">
-        </div>
-        <button (click)="agregarRegion()"
-            class="inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--terracota)] text-white rounded-lg hover:bg-[color:var(--terracota-dark)] transition-colors">
-            <lucide-icon name="plus" class="w-4 h-4"></lucide-icon>
-            Agregar Región
-        </button>
-    </div>
+  <!-- Lista de regiones -->
+  <div class="space-y-4">
+    @if (regiones().length === 0) {
+      <p>No hay regiones registradas</p>
+    } @else {
+      @for (region of regiones(); track region.id) {
+        <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+          <!-- Header de región -->
+          <div
+            class="px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors"
+            (click)="toggleExpand(region.id)"
+          >
+            <div class="flex items-center gap-4">
+              @if (region.imagen) {
+                <img
+                  [src]="region.imagen"
+                  [alt]="region.nombre"
+                  class="w-12 h-12 rounded-lg object-cover"
+                />
+              }
+              <div>
+                <h3 class="text-[color:var(--cafe-oscuro)]">{{ region.nombre }}</h3>
+                <p class="text-sm text-[color:var(--tierra)]">
+                  {{ region.descripcion }}
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <lucide-icon
+                name="chevron-down"
+                class="w-5 h-5 text-[color:var(--tierra)] transition-transform"
+                [class.rotate-180]="expandedRegionId() === region.id"
+              ></lucide-icon>
+            </div>
+          </div>
 
-    <!-- Lista de regiones -->
-    <div class="space-y-4">
-        @for (region of regiones(); track region.id) {
-            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <!-- Header de región -->
-                <div class="px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors"
-                    (click)="toggleExpand(region.id)">
-                    <div class="flex items-center gap-4">
-                        @if (region.imagen) {
-                            <img [src]="region.imagen" [alt]="region.nombre"
-                                class="w-12 h-12 rounded-lg object-cover">
-                        }
-                        <div>
-                            @if (editandoRegionId() === region.id) {
-                                <div class="flex gap-2" (click)="$event.stopPropagation()">
-                                    <input type="text" [ngModel]="editandoRegion().nombre"
-                                        (ngModelChange)="updateEditandoRegion('nombre', $event)"
-                                        class="px-3 py-1 border rounded-lg text-sm">
-                                    <input type="text" [ngModel]="editandoRegion().descripcion"
-                                        (ngModelChange)="updateEditandoRegion('descripcion', $event)"
-                                        class="px-3 py-1 border rounded-lg text-sm"
-                                        placeholder="Descripción">
-                                </div>
-                            } @else {
-                                <h3 class="text-[color:var(--cafe-oscuro)]">{{ region.nombre }}</h3>
-                                <p class="text-sm text-[color:var(--tierra)]">{{ region.descripcion }} · {{ region.departamentos.length }} departamentos</p>
-                            }
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2" (click)="$event.stopPropagation()">
-                        @if (editandoRegionId() === region.id) {
-                            <button (click)="guardarEdicionRegion(region)"
-                                class="p-2 rounded-lg hover:bg-green-50 text-green-600 transition-colors">
-                                <lucide-icon name="save" class="w-4 h-4"></lucide-icon>
-                            </button>
-                            <button (click)="cancelarEdicionRegion()"
-                                class="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
-                                <lucide-icon name="x" class="w-4 h-4"></lucide-icon>
-                            </button>
-                        } @else {
-                            <button (click)="iniciarEdicionRegion(region)"
-                                class="p-2 rounded-lg hover:bg-blue-50 text-blue-600 transition-colors">
-                                <lucide-icon name="pencil" class="w-4 h-4"></lucide-icon>
-                            </button>
-                            <button (click)="eliminarRegion(region.id)"
-                                class="p-2 rounded-lg hover:bg-red-50 text-red-500 transition-colors">
-                                <lucide-icon name="trash-2" class="w-4 h-4"></lucide-icon>
-                            </button>
-                        }
-                        <lucide-icon name="chevron-down" class="w-5 h-5 text-[color:var(--tierra)] transition-transform"
-                            [class.rotate-180]="expandedRegionId() === region.id"></lucide-icon>
-                    </div>
-                </div>
-
-                <!-- Departamentos -->
-                @if (expandedRegionId() === region.id) {
-                    <div class="border-t px-6 py-4 bg-gray-50/50">
-                        <h4 class="text-sm text-[color:var(--tierra)] mb-3">Departamentos</h4>
-
-                        <!-- Agregar departamento -->
-                        <div class="flex gap-3 mb-4">
-                            <input type="text" placeholder="Nuevo departamento..."
-                                class="flex-1 px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
-                                [ngModel]="getNuevoDep(region.id)" (ngModelChange)="updateNuevoDep(region.id, $event)"
-                                (keyup.enter)="agregarDepartamento(region.id)">
-                            <button (click)="agregarDepartamento(region.id)"
-                                class="inline-flex items-center gap-1 px-3 py-2 text-sm bg-[color:var(--verde)] text-white rounded-lg hover:bg-[color:var(--verde-dark)] transition-colors">
-                                <lucide-icon name="plus" class="w-4 h-4"></lucide-icon>
-                                Agregar
-                            </button>
-                        </div>
-
-                        <!-- Lista de departamentos -->
-                        <div class="space-y-2">
-                            @for (dep of region.departamentos; track dep.id) {
-                                <div class="flex items-center justify-between px-4 py-2 bg-white rounded-lg border">
-                                    <span class="text-sm text-[color:var(--cafe-oscuro)]">{{ dep.nombre }}</span>
-                                    <button (click)="eliminarDepartamento(region.id, dep.id)"
-                                        class="p-1.5 rounded-lg hover:bg-red-50 text-red-500 transition-colors">
-                                        <lucide-icon name="trash-2" class="w-3.5 h-3.5"></lucide-icon>
-                                    </button>
-                                </div>
-                            } @empty {
-                                <p class="text-sm text-[color:var(--tierra)] text-center py-4">No hay departamentos</p>
-                            }
-                        </div>
-                    </div>
+          <!-- Departamentos -->
+          @if (expandedRegionId() === region.id) {
+            <div class="border-t px-6 py-4 bg-gray-50/50">
+              <h4 class="text-sm text-[color:var(--tierra)] mb-3">Departamentos</h4>
+              <!-- Lista de departamentos -->
+              <div class="space-y-2">
+                @if (departamentosResource.isLoading()) {
+                  <p>Cargando...</p>
                 }
+
+                @if (departamentosResource.error()) {
+                  <p>Error al cargar los departamentos</p>
+                }
+                @for (dep of departamentos(); track dep.id) {
+                  <div
+                    class="flex items-center justify-between px-4 py-2 bg-white rounded-lg border"
+                  >
+                    <span class="text-sm text-[color:var(--cafe-oscuro)]">{{ dep.nombre }}</span>
+                  </div>
+                } @empty {
+                  <p class="text-sm text-[color:var(--tierra)] text-center py-4">
+                    No hay departamentos
+                  </p>
+                }
+              </div>
             </div>
-        } @empty {
-            <div class="bg-white rounded-xl shadow-sm border p-12 text-center text-[color:var(--tierra)]">
-                No hay regiones registradas
-            </div>
-        }
-    </div>
+          }
+        </div>
+      } @empty {
+        <div
+          class="bg-white rounded-xl shadow-sm border p-12 text-center text-[color:var(--tierra)]"
+        >
+          No hay regiones registradas
+        </div>
+      }
+    }
+  </div>
 </div>

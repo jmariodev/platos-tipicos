@@ -1,78 +1,100 @@
 <div class="space-y-8">
-    <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Dashboard</h1>
+  <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Dashboard</h1>
 
-    <!-- Stats Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Platos -->
-        <a routerLink="/admin/platos"
-            class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow group">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-sm text-[color:var(--tierra)]">Total Platos</p>
-                    <p class="text-3xl mt-1 text-[color:var(--cafe-oscuro)]">{{ platos().length }}</p>
-                </div>
-                <div class="w-12 h-12 bg-[color:var(--terracota)]/10 rounded-xl flex items-center justify-center group-hover:bg-[color:var(--terracota)]/20 transition-colors">
-                    <lucide-icon name="chef-hat" class="w-6 h-6 text-[color:var(--terracota)]"></lucide-icon>
-                </div>
-            </div>
-        </a>
-
-        <!-- Categorías -->
-        <a routerLink="/admin/categorias"
-            class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow group">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-sm text-[color:var(--tierra)]">Categorías</p>
-                    <p class="text-3xl mt-1 text-[color:var(--cafe-oscuro)]">{{ categorias().length }}</p>
-                </div>
-                <div class="w-12 h-12 bg-[color:var(--amarillo)]/10 rounded-xl flex items-center justify-center group-hover:bg-[color:var(--amarillo)]/20 transition-colors">
-                    <lucide-icon name="tag" class="w-6 h-6 text-[color:var(--amarillo-dark)]"></lucide-icon>
-                </div>
-            </div>
-        </a>
-
-        <!-- Regiones -->
-        <a routerLink="/admin/regiones"
-            class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow group">
-            <div class="flex items-center justify-between">
-                <div>
-                    <p class="text-sm text-[color:var(--tierra)]">Regiones</p>
-                    <p class="text-3xl mt-1 text-[color:var(--cafe-oscuro)]">{{ regiones().length }}</p>
-                </div>
-                <div class="w-12 h-12 bg-[color:var(--verde)]/10 rounded-xl flex items-center justify-center group-hover:bg-[color:var(--verde)]/20 transition-colors">
-                    <lucide-icon name="map-pin" class="w-6 h-6 text-[color:var(--verde)]"></lucide-icon>
-                </div>
-            </div>
-        </a>
-    </div>
-
-    <!-- Platos Destacados -->
-    <div class="bg-white rounded-xl shadow-sm border">
-        <div class="px-6 py-4 border-b flex items-center justify-between">
-            <h2 class="text-lg text-[color:var(--cafe-oscuro)]">Platos Destacados</h2>
-            <a routerLink="/admin/platos" class="text-sm text-[color:var(--terracota)] hover:underline">Ver todos</a>
+  <!-- Stats Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Platos -->
+    <a
+      routerLink="/admin/platos"
+      class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow group"
+    >
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm text-[color:var(--tierra)]">Total Platos</p>
+          <p class="text-3xl mt-1 text-[color:var(--cafe-oscuro)]">{{ platos().length }}</p>
         </div>
-        <div class="divide-y">
-            @for (plato of platos(); track plato.id) {
-                @if (plato.esDestacado) {
-                    <div class="px-6 py-4 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
-                            @if (plato.galeria.length > 0) {
-                                <img [src]="plato.galeria[0].url" [alt]="plato.nombre"
-                                    class="w-12 h-12 rounded-lg object-cover">
-                            }
-                            <div>
-                                <p class="text-[color:var(--cafe-oscuro)]">{{ plato.nombre }}</p>
-                                <p class="text-sm text-[color:var(--tierra)]">{{ plato.categoria.nombre }} · {{ plato.departamento.nombre }}</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <lucide-icon name="sparkles" class="w-4 h-4 text-[color:var(--amarillo)]"></lucide-icon>
-                            <span class="text-sm text-[color:var(--tierra)]">{{ plato.popularidad }}%</span>
-                        </div>
-                    </div>
-                }
-            }
+        <div
+          class="w-12 h-12 bg-[color:var(--terracota)]/10 rounded-xl flex items-center justify-center group-hover:bg-[color:var(--terracota)]/20 transition-colors"
+        >
+          <lucide-icon name="chef-hat" class="w-6 h-6 text-[color:var(--terracota)]"></lucide-icon>
         </div>
+      </div>
+    </a>
+
+    <!-- Categorías -->
+    <a
+      routerLink="/admin/categorias"
+      class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow group"
+    >
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm text-[color:var(--tierra)]">Categorías</p>
+          <p class="text-3xl mt-1 text-[color:var(--cafe-oscuro)]">{{ categorias().length }}</p>
+        </div>
+        <div
+          class="w-12 h-12 bg-[color:var(--amarillo)]/10 rounded-xl flex items-center justify-center group-hover:bg-[color:var(--amarillo)]/20 transition-colors"
+        >
+          <lucide-icon name="tag" class="w-6 h-6 text-[color:var(--amarillo-dark)]"></lucide-icon>
+        </div>
+      </div>
+    </a>
+
+    <!-- Regiones -->
+    <a
+      routerLink="/admin/regiones"
+      class="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow group"
+    >
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm text-[color:var(--tierra)]">Regiones</p>
+          <p class="text-3xl mt-1 text-[color:var(--cafe-oscuro)]">{{ regiones().length }}</p>
+        </div>
+        <div
+          class="w-12 h-12 bg-[color:var(--verde)]/10 rounded-xl flex items-center justify-center group-hover:bg-[color:var(--verde)]/20 transition-colors"
+        >
+          <lucide-icon name="map-pin" class="w-6 h-6 text-[color:var(--verde)]"></lucide-icon>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Platos Destacados -->
+  <div class="bg-white rounded-xl shadow-sm border">
+    <div class="px-6 py-4 border-b flex items-center justify-between">
+      <h2 class="text-lg text-[color:var(--cafe-oscuro)]">Platos Destacados</h2>
+      <a routerLink="/admin/platos" class="text-sm text-[color:var(--terracota)] hover:underline"
+        >Ver todos</a
+      >
     </div>
+    <div class="divide-y">
+      @for (plato of platos(); track plato.id) {
+        @if (plato.destacado) {
+          <div class="px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              @if (plato.galeria.length > 0) {
+                <img
+                  [src]="plato.galeria[0].url"
+                  [alt]="plato.nombre"
+                  class="w-12 h-12 rounded-lg object-cover"
+                />
+              }
+              <div>
+                <p class="text-[color:var(--cafe-oscuro)]">{{ plato.nombre }}</p>
+                <p class="text-sm text-[color:var(--tierra)]">
+                  {{ plato.categoria.nombre }} · {{ plato.departamento.nombre }}
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <lucide-icon
+                name="sparkles"
+                class="w-4 h-4 text-[color:var(--amarillo)]"
+              ></lucide-icon>
+              <span class="text-sm text-[color:var(--tierra)]">{{ plato.popularidad }}%</span>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
 </div>

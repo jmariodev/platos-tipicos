@@ -19,17 +19,20 @@ export class CategoriaRepositoryImpl extends CategoriaRepository {
   }
 
   addCategoria(categoria: Categoria): Observable<Categoria> {
-    // TODO: Cambiar por this.http.post<Categoria>(this.apiUrl, categoria)
-    return of(categoria);
+    return this.http.post<Categoria>(
+      'http://localhost:8080/platos_tipicos/api/categoria',
+      categoria,
+    );
   }
 
   updateCategoria(categoria: Categoria): Observable<Categoria> {
-    // TODO: Cambiar por this.http.put<Categoria>(`${this.apiUrl}/${categoria.id}`, categoria)
-    return of(categoria);
+    return this.http.put<Categoria>(
+      `http://localhost:8080/platos_tipicos/api/categoria/${categoria.id}`,
+      categoria,
+    );
   }
 
   deleteCategoria(id: number): Observable<void> {
-    // TODO: Cambiar por this.http.delete<void>(`${this.apiUrl}/${id}`)
-    return of(undefined);
+    return this.http.delete<void>(`http://localhost:8080/platos_tipicos/api/categoria/${id}`);
   }
 }

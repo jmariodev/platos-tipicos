@@ -1,85 +1,116 @@
 <div class="space-y-6">
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Gestión de Platos</h1>
-        <a routerLink="/admin/platos/crear"
-            class="inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--terracota)] text-white rounded-lg hover:bg-[color:var(--terracota-dark)] transition-colors">
-            <lucide-icon name="plus" class="w-4 h-4"></lucide-icon>
-            Nuevo Plato
-        </a>
-    </div>
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Gestión de Platos</h1>
+    <a
+      routerLink="/admin/platos/nuevo"
+      class="inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--terracota)] text-white rounded-lg hover:bg-[color:var(--terracota-dark)] transition-colors"
+    >
+      <lucide-icon name="plus" class="w-4 h-4"></lucide-icon>
+      Nuevo Plato
+    </a>
+  </div>
 
-    <!-- Búsqueda -->
-    <div class="relative">
-        <lucide-icon name="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[color:var(--tierra)]"></lucide-icon>
-        <input type="text" placeholder="Buscar por nombre, categoría o departamento..."
-            class="w-full pl-10 pr-4 py-3 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
-            [ngModel]="busqueda()" (ngModelChange)="onBusqueda($event)">
-    </div>
+  <!-- Búsqueda -->
+  <div class="relative">
+    <lucide-icon
+      name="search"
+      class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[color:var(--tierra)]"
+    ></lucide-icon>
+    <input
+      type="text"
+      placeholder="Buscar por nombre, categoría o departamento..."
+      class="w-full pl-10 pr-4 py-3 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
+      [ngModel]="busqueda()"
+      (ngModelChange)="onBusqueda($event)"
+    />
+  </div>
 
-    <!-- Tabla -->
-    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
-        <div class="overflow-x-auto">
-            <table class="w-full">
-                <thead class="bg-gray-50 border-b">
-                    <tr>
-                        <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">Plato</th>
-                        <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)] hidden md:table-cell">Categoría</th>
-                        <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)] hidden md:table-cell">Departamento</th>
-                        <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)] hidden lg:table-cell">Popularidad</th>
-                        <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">Destacado</th>
-                        <th class="text-right px-6 py-3 text-sm text-[color:var(--tierra)]">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y">
-                    @for (plato of platosFiltrados(); track plato.id) {
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    @if (plato.galeria.length > 0) {
-                                        <img [src]="plato.galeria[0].url" [alt]="plato.nombre"
-                                            class="w-10 h-10 rounded-lg object-cover shrink-0">
-                                    }
-                                    <span class="text-[color:var(--cafe-oscuro)]">{{ plato.nombre }}</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 text-sm text-[color:var(--tierra)] hidden md:table-cell">{{ plato.categoria.nombre }}</td>
-                            <td class="px-6 py-4 text-sm text-[color:var(--tierra)] hidden md:table-cell">{{ plato.departamento.nombre }}</td>
-                            <td class="px-6 py-4 hidden lg:table-cell">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
-                                        <div class="h-full bg-[color:var(--terracota)] rounded-full"
-                                            [style.width.%]="plato.popularidad"></div>
-                                    </div>
-                                    <span class="text-sm text-[color:var(--tierra)]">{{ plato.popularidad }}%</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                @if (plato.esDestacado) {
-                                    <lucide-icon name="sparkles" class="w-5 h-5 text-[color:var(--amarillo)]"></lucide-icon>
-                                }
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center justify-end gap-2">
-                                    <a [routerLink]="['/admin/platos', plato.id]"
-                                        class="p-2 rounded-lg hover:bg-blue-50 text-blue-600 transition-colors">
-                                        <lucide-icon name="pencil" class="w-4 h-4"></lucide-icon>
-                                    </a>
-                                    <button (click)="eliminarPlato(plato.id)"
-                                        class="p-2 rounded-lg hover:bg-red-50 text-red-500 transition-colors">
-                                        <lucide-icon name="trash-2" class="w-4 h-4"></lucide-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    } @empty {
-                        <tr>
-                            <td colspan="6" class="px-6 py-12 text-center text-[color:var(--tierra)]">
-                                No se encontraron platos
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+  <!-- Tabla -->
+  <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full">
+        <thead class="bg-gray-50 border-b">
+          <tr>
+            <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">Plato</th>
+            <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)] hidden md:table-cell">
+              Categoría
+            </th>
+            <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)] hidden md:table-cell">
+              Departamento
+            </th>
+            <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)] hidden lg:table-cell">
+              Popularidad
+            </th>
+            <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">Destacado</th>
+            <th class="text-right px-6 py-3 text-sm text-[color:var(--tierra)]">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          @for (plato of platosFiltrados(); track plato.id) {
+            <tr class="hover:bg-gray-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  @if (plato.galeria.length > 0) {
+                    <img
+                      [src]="plato.galeria[0].url"
+                      [alt]="plato.nombre"
+                      class="w-10 h-10 rounded-lg object-cover shrink-0"
+                    />
+                  }
+                  <span class="text-[color:var(--cafe-oscuro)]">{{ plato.nombre }}</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm text-[color:var(--tierra)] hidden md:table-cell">
+                {{ plato.categoria.nombre }}
+              </td>
+              <td class="px-6 py-4 text-sm text-[color:var(--tierra)] hidden md:table-cell">
+                {{ plato.departamento.nombre }}
+              </td>
+              <td class="px-6 py-4 hidden lg:table-cell">
+                <div class="flex items-center gap-2">
+                  <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div
+                      class="h-full bg-[color:var(--terracota)] rounded-full"
+                      [style.width.%]="plato.popularidad"
+                    ></div>
+                  </div>
+                  <span class="text-sm text-[color:var(--tierra)]">{{ plato.popularidad }}%</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                @if (plato.destacado) {
+                  <lucide-icon
+                    name="sparkles"
+                    class="w-5 h-5 text-[color:var(--amarillo)]"
+                  ></lucide-icon>
+                }
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex items-center justify-end gap-2">
+                  <a
+                    [routerLink]="['/admin/platos', plato.id]"
+                    class="p-2 rounded-lg hover:bg-blue-50 text-blue-600 transition-colors"
+                  >
+                    <lucide-icon name="pencil" class="w-4 h-4"></lucide-icon>
+                  </a>
+                  <button
+                    (click)="eliminarPlato(plato.id)"
+                    class="p-2 rounded-lg hover:bg-red-50 text-red-500 transition-colors"
+                  >
+                    <lucide-icon name="trash-2" class="w-4 h-4"></lucide-icon>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="6" class="px-6 py-12 text-center text-[color:var(--tierra)]">
+                No se encontraron platos
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

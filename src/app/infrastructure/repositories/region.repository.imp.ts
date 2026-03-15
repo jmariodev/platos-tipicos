@@ -17,19 +17,4 @@ export class RegionRepositoryImpl extends RegionRepository {
   getRegionById(id: number): Observable<Region | undefined> {
     return this.http.get<Region>(`http://localhost:8080/platos_tipicos/api/region/${id}`);
   }
-
-  addRegion(region: Region): Observable<Region> {
-    return this.http.post<Region>('http://localhost:8080/platos_tipicos/api/region', region);
-  }
-
-  updateRegion(region: Region): Observable<Region> {
-    return this.http.put<Region>(
-      `http://localhost:8080/platos_tipicos/api/region/${region.id}`,
-      region,
-    );
-  }
-
-  deleteRegion(id: number): Observable<void> {
-    return this.http.delete<void>(`http://localhost:8080/platos_tipicos/api/region/${id}`);
-  }
 }

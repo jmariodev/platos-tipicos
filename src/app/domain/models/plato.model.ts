@@ -3,12 +3,14 @@ import { Comentarios } from './comentarios.model';
 import { Departamento } from './departamento.model';
 import { Galeria } from './galeria.model';
 import { Ingrediente } from './ingrediente.model';
+import { Region } from './region.model';
+import { Usuario } from './usuario.model';
 
 export interface Plato {
   id: number;
   nombre: string;
   porciones: number;
-  esDestacado: boolean;
+  destacado: boolean;
   tiempoPreparacion: number;
   datoCurioso: string;
   historia: string;
@@ -18,5 +20,7 @@ export interface Plato {
   categoria: Categoria;
   ingredientes: Ingrediente[];
   galeria: Galeria[];
-  comentarios: Comentarios[];
+  region?: Region;
+  comentarios?: Comentarios[];
+  usuario?: Usuario;
 }

@@ -23,17 +23,17 @@ export class PlatoRepositoryImpl extends PlatoRepository {
   }
 
   addPlato(plato: Plato): Observable<Plato> {
-    // TODO: Cambiar por this.http.post<Plato>(this.apiUrl, plato)
-    return of(plato);
+    return this.http.post<Plato>('http://localhost:8080/platos_tipicos/api/plato', plato);
   }
 
   updatePlato(plato: Plato): Observable<Plato> {
-    // TODO: Cambiar por this.http.put<Plato>(`${this.apiUrl}/${plato.id}`, plato)
-    return of(plato);
+    return this.http.put<Plato>(
+      `http://localhost:8080/platos_tipicos/api/plato/${plato.id}`,
+      plato,
+    );
   }
 
   deletePlato(id: number): Observable<void> {
-    // TODO: Cambiar por this.http.delete<void>(`${this.apiUrl}/${id}`)
-    return of(undefined);
+    return this.http.delete<void>(`http://localhost:8080/platos_tipicos/api/plato/${id}`);
   }
 }

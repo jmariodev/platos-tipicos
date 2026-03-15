@@ -57,7 +57,7 @@ export class Platos {
       if (params == undefined) return [];
 
       if (params === 0) return firstValueFrom(this.platosRepository.getPlatos());
-      debugger;
+
       return firstValueFrom(this.platosRepository.getPlatosByRegion(params));
     },
   });

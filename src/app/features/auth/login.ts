@@ -2,71 +2,71 @@ import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
-import { AuthService } from './auth.service';
+import { LoginUseCase } from '../../domain/use-cases/login.usecase';
 
 @Component({
-    selector: 'app-login',
-    imports: [ReactiveFormsModule, RouterLink, LucideAngularModule],
-    templateUrl: './login.html',
-    styleUrl: './login.css',
+  selector: 'app-login',
+  imports: [ReactiveFormsModule, RouterLink, LucideAngularModule],
+  templateUrl: './login.html',
+  styleUrl: './login.css',
 })
 export class Login {
-    private fb = inject(FormBuilder);
-    private auth = inject(AuthService);
-    private router = inject(Router);
+  private fb = inject(FormBuilder);
+  private router = inject(Router);
+  private loginUseCase = inject(LoginUseCase);
 
-    modo = signal<'login' | 'registro'>('login');
-    error = signal('');
+  modo = signal<'login' | 'registro'>('login');
+  error = signal('');
 
-    loginForm = this.fb.group({
-        correo: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]],
+  loginForm = this.fb.group({
+    usuario: ['', [Validators.required]],
+    contrasena: ['', [Validators.required]],
+  });
+
+  registroForm = this.fb.group({
+    nombre: ['', [Validators.required, Validators.minLength(2)]],
+    usuario: ['', [Validators.required]],
+    contrasena: ['', [Validators.required, Validators.minLength(6)]],
+  });
+
+  cambiarModo(modo: 'login' | 'registro') {
+    this.modo.set(modo);
+    this.error.set('');
+  }
+
+  iniciarSesion() {
+    this.error.set('');
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+    const { usuario, contrasena } = this.loginForm.value;
+    this.loginUseCase.execute(usuario!, contrasena!).subscribe({
+      next: () => {
+        this.router.navigate(['/admin']);
+        this.loginForm.reset();
+      },
+      error: (error: any) => {
+        this.error.set(error.error);
+      },
     });
+  }
 
-    registroForm = this.fb.group({
-        nombre: ['', [Validators.required, Validators.minLength(2)]],
-        apellido: ['', [Validators.required, Validators.minLength(2)]],
-        contacto: ['', [Validators.required]],
-        correo: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
+  /* registrarse() {
+    if (this.registroForm.invalid) {
+      this.registroForm.markAllAsTouched();
+      return;
+    }
+    const val = this.registroForm.value;
+    const result = this.auth.registrar({
+      nombre: val.nombre!,
+      usuario: val.usuario!,
+      contrasena: val.contrasena!,
     });
-
-    cambiarModo(modo: 'login' | 'registro') {
-        this.modo.set(modo);
-        this.error.set('');
+    if (result.success) {
+      this.router.navigate(['/admin']);
+    } else {
+      this.error.set(result.error!);
     }
-
-    iniciarSesion() {
-        if (this.loginForm.invalid) {
-            this.loginForm.markAllAsTouched();
-            return;
-        }
-        const { correo, password } = this.loginForm.value;
-        const result = this.auth.login(correo!, password!);
-        if (result.success) {
-            this.router.navigate(['/admin']);
-        } else {
-            this.error.set(result.error!);
-        }
-    }
-
-    registrarse() {
-        if (this.registroForm.invalid) {
-            this.registroForm.markAllAsTouched();
-            return;
-        }
-        const val = this.registroForm.value;
-        const result = this.auth.registrar({
-            nombre: val.nombre!,
-            apellido: val.apellido!,
-            contacto: val.contacto!,
-            correo: val.correo!,
-            password: val.password!,
-        });
-        if (result.success) {
-            this.router.navigate(['/admin']);
-        } else {
-            this.error.set(result.error!);
-        }
-    }
+  } */
 }

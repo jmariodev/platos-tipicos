@@ -1,77 +1,96 @@
 <div class="space-y-6">
-    <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Gestión de Categorías</h1>
+  <h1 class="text-2xl text-[color:var(--cafe-oscuro)]">Gestión de Categorías</h1>
 
-    <!-- Agregar nueva -->
-    <div class="bg-white rounded-xl shadow-sm border p-6">
-        <h2 class="text-lg text-[color:var(--cafe-oscuro)] mb-4">Nueva Categoría</h2>
-        <div class="flex gap-3">
-            <input type="text" placeholder="Nombre de la categoría..."
-                class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
-                [ngModel]="nuevaCategoria()" (ngModelChange)="nuevaCategoria.set($event)"
-                (keyup.enter)="agregar()">
-            <button (click)="agregar()"
-                class="inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--terracota)] text-white rounded-lg hover:bg-[color:var(--terracota-dark)] transition-colors">
-                <lucide-icon name="plus" class="w-4 h-4"></lucide-icon>
-                Agregar
-            </button>
-        </div>
+  <!-- Agregar nueva -->
+  <div class="bg-white rounded-xl shadow-sm border p-6">
+    <h2 class="text-lg text-[color:var(--cafe-oscuro)] mb-4">Nueva Categoría</h2>
+    <div class="flex gap-3">
+      <input
+        type="text"
+        placeholder="Nombre de la categoría..."
+        class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30"
+        [ngModel]="nuevaCategoria()"
+        (ngModelChange)="nuevaCategoria.set($event)"
+        (keyup.enter)="agregar()"
+      />
+      <button
+        (click)="agregar()"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-[color:var(--terracota)] text-white rounded-lg hover:bg-[color:var(--terracota-dark)] transition-colors"
+      >
+        <lucide-icon name="plus" class="w-4 h-4"></lucide-icon>
+        Agregar
+      </button>
     </div>
+  </div>
 
-    <!-- Lista -->
-    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
-        <table class="w-full">
-            <thead class="bg-gray-50 border-b">
-                <tr>
-                    <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">ID</th>
-                    <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">Nombre</th>
-                    <th class="text-right px-6 py-3 text-sm text-[color:var(--tierra)]">Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y">
-                @for (cat of categorias(); track cat.id) {
-                    <tr class="hover:bg-gray-50 transition-colors">
-                        <td class="px-6 py-4 text-sm text-[color:var(--tierra)]">{{ cat.id }}</td>
-                        <td class="px-6 py-4">
-                            @if (editandoId() === cat.id) {
-                                <input type="text" [ngModel]="editandoNombre()" (ngModelChange)="editandoNombre.set($event)"
-                                    (keyup.enter)="guardarEdicion()" (keyup.escape)="cancelarEdicion()"
-                                    class="px-3 py-1.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 w-full max-w-xs">
-                            } @else {
-                                <span class="text-[color:var(--cafe-oscuro)]">{{ cat.nombre }}</span>
-                            }
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center justify-end gap-2">
-                                @if (editandoId() === cat.id) {
-                                    <button (click)="guardarEdicion()"
-                                        class="p-2 rounded-lg hover:bg-green-50 text-green-600 transition-colors">
-                                        <lucide-icon name="save" class="w-4 h-4"></lucide-icon>
-                                    </button>
-                                    <button (click)="cancelarEdicion()"
-                                        class="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
-                                        <lucide-icon name="x" class="w-4 h-4"></lucide-icon>
-                                    </button>
-                                } @else {
-                                    <button (click)="iniciarEdicion(cat)"
-                                        class="p-2 rounded-lg hover:bg-blue-50 text-blue-600 transition-colors">
-                                        <lucide-icon name="pencil" class="w-4 h-4"></lucide-icon>
-                                    </button>
-                                    <button (click)="eliminar(cat.id)"
-                                        class="p-2 rounded-lg hover:bg-red-50 text-red-500 transition-colors">
-                                        <lucide-icon name="trash-2" class="w-4 h-4"></lucide-icon>
-                                    </button>
-                                }
-                            </div>
-                        </td>
-                    </tr>
-                } @empty {
-                    <tr>
-                        <td colspan="3" class="px-6 py-12 text-center text-[color:var(--tierra)]">
-                            No hay categorías registradas
-                        </td>
-                    </tr>
+  <!-- Lista -->
+  <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+    <table class="w-full">
+      <thead class="bg-gray-50 border-b">
+        <tr>
+          <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">ID</th>
+          <th class="text-left px-6 py-3 text-sm text-[color:var(--tierra)]">Nombre</th>
+          <th class="text-right px-6 py-3 text-sm text-[color:var(--tierra)]">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y">
+        @for (cat of categorias(); track cat.id) {
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-6 py-4 text-sm text-[color:var(--tierra)]">{{ cat.id }}</td>
+            <td class="px-6 py-4">
+              @if (editandoId() === cat.id) {
+                <input
+                  type="text"
+                  [ngModel]="editandoNombre()"
+                  (ngModelChange)="editandoNombre.set($event)"
+                  (keyup.enter)="guardarEdicion()"
+                  (keyup.escape)="limpiarFormulario()"
+                  class="px-3 py-1.5 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--terracota)]/30 w-full max-w-xs"
+                />
+              } @else {
+                <span class="text-[color:var(--cafe-oscuro)]">{{ cat.nombre }}</span>
+              }
+            </td>
+            <td class="px-6 py-4">
+              <div class="flex items-center justify-end gap-2">
+                @if (editandoId() === cat.id) {
+                  <button
+                    (click)="guardarEdicion()"
+                    class="p-2 rounded-lg hover:bg-green-50 text-green-600 transition-colors"
+                  >
+                    <lucide-icon name="save" class="w-4 h-4"></lucide-icon>
+                  </button>
+                  <button
+                    (click)="limpiarFormulario()"
+                    class="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors"
+                  >
+                    <lucide-icon name="x" class="w-4 h-4"></lucide-icon>
+                  </button>
+                } @else {
+                  <button
+                    (click)="iniciarEdicion(cat)"
+                    class="p-2 rounded-lg hover:bg-blue-50 text-blue-600 transition-colors"
+                  >
+                    <lucide-icon name="pencil" class="w-4 h-4"></lucide-icon>
+                  </button>
+                  <button
+                    (click)="eliminar(cat.id)"
+                    class="p-2 rounded-lg hover:bg-red-50 text-red-500 transition-colors"
+                  >
+                    <lucide-icon name="trash-2" class="w-4 h-4"></lucide-icon>
+                  </button>
                 }
-            </tbody>
-        </table>
-    </div>
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="3" class="px-6 py-12 text-center text-[color:var(--tierra)]">
+              No hay categorías registradas
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>
